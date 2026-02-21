@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Pivots;
+
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+class RoleUser extends Pivot
+{
+    protected $table = 'role_user';
+
+    public $timestamps = false;
+}
