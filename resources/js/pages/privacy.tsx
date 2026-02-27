@@ -6,7 +6,7 @@ import AppFooter from '@/components/app-footer';
 export default function Privacy() {
     return (
         <>
-            <Head>
+            <Head title="Privacy Policy">
                 <meta name="description" content="iWantiWant allows you to create and share wish lists with your friends and family" />
             </Head>
             <div className="flex min-h-screen flex-col items-center pb-6 pt:16 bg-gray-100 text-gray-700 lg:justify-center">

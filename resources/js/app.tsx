@@ -3,12 +3,11 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import '../css/app.css';
-import { initializeTheme } from './hooks/use-appearance';
 
 const appName = 'Share your wish list - iWantiWant';
 
 createInertiaApp({
-    title: (title) => (title ? `${title} - iWantiWant}` : appName),
+    title: (title) => (title ? `${title} - iWantiWant` : appName),
     resolve: (name) =>
         resolvePageComponent(
             `./pages/${name}.tsx`,
@@ -28,5 +27,3 @@ createInertiaApp({
     },
 });
 
-// This will set light / dark mode on load...
-initializeTheme();

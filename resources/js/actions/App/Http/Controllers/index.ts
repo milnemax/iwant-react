@@ -1,6 +1,8 @@
+import ListController from './ListController'
 import Settings from './Settings'
 const Controllers = {
-    Settings: Object.assign(Settings, Settings),
+    ListController: Object.assign(ListController, ListController),
+Settings: Object.assign(Settings, Settings),
 }
 
 export default Controllers
