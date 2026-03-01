@@ -2,6 +2,8 @@ import { Head, Link } from '@inertiajs/react';
 import { recipients, unsubscribe } from '@/routes';
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
+import ContactForm from '@/components/forms/contact-form';
+import SuccessMsg from '@/components/messages/success-msg';
 
 export default function Privacy() {
     return (
@@ -12,7 +14,9 @@ export default function Privacy() {
             <div className="flex min-h-screen flex-col items-center pb-6 pt:16 bg-gray-100 text-gray-700 lg:justify-center">
                 <AppHeader />
 
-                <main className="flex w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 my-[8rem]">
+                <SuccessMsg />
+
+                <main className="flex flex-col w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 my-[8rem]">
                     <div className="w-full max-w-[335px] lg:max-w-4xl shadow-lg rounded-lg overflow-hidden p-6">
                         <h1 className="text-3xl mb-4">Privacy Policy</h1>
 
@@ -64,11 +68,9 @@ export default function Privacy() {
                         <b>Security</b>
                         <a name="cookie"></a>
                         <p>A cookie is stored on your device when you login as part of the authentication, the cookie is  not used to store or track any other information.</p>
-
-                        <br/>
-
-                        <h3 className="text-xl my-2">Contact the controller to object or question any aspect of this policy. <a name="contact_controller"></a></h3>
                     </div>
+
+                    <ContactForm />
                 </main>
 
                 <AppFooter />

@@ -7,7 +7,7 @@ export default function VerifySharedListCodeForm() {
         <Form
             action={verifySharedListForm()}
             method="post"
-            className="shadow-lg rounded-lg bg-white w-full w-full max-w-[335px] lg:max-w-4xl p-6 my-20"
+            className="shadow-lg rounded-lg bg-white w-full max-w-[335px] lg:max-w-4xl p-6 my-20"
         >
             {({ errors, processing }) => (
                 <>

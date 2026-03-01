@@ -15,7 +15,7 @@ function PrimaryBtn({
         <button
             type="submit"
             disabled={processing || props.disabled}
-            className="text-white border border-gray-700 bg-gray-700 py-2 px-3 rounded hover:text-gray-300 hover:bg-gray-600"
+            className="text-white border border-gray-700 bg-gray-700 py-2 px-3 rounded hover:text-gray-300 hover:bg-gray-600 cursor-pointer"
         >
             {children}
         </button>

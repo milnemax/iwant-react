@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -13,6 +14,9 @@ Route::get('/', function () {
 Route::get('privacy', function () {
     return Inertia::render('privacy');
 })->name('privacy');
+
+Route::post('/privacy', [ContactUsController::class, 'send'])
+    ->name('contact-us-form');
 
 Route::get('recipients', function () {
     return Inertia::render('recipients');
