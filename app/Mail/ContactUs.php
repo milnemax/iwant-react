@@ -10,7 +10,7 @@ class ContactUs extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $message = '';
+    public string $message = '';
 
     /**
      * Create a new message instance.

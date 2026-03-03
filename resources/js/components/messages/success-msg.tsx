@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 import { usePage } from '@inertiajs/react';
 
-export default function SuccessMsg() {
+interface SuccessMsgProps {
+    message?: string | null;
+}
+
+export default function SuccessMsg({ message }: SuccessMsgProps) {
     const { flash } = usePage().props as any;
+
+    const resolvedMessage = message ?? flash?.success ?? null;
 
     const [visible, setVisible] = useState(false);
 
     useEffect(() => {
-        if (flash?.success) {
+        if (resolvedMessage) {
             setVisible(true);
 
             const timer = setTimeout(() => {
@@ -16,9 +22,9 @@ export default function SuccessMsg() {
 
             return () => clearTimeout(timer);
         }
-    }, [flash?.success]);
+    }, [resolvedMessage]);
 
-    if (!flash?.success) return null;
+    if (!resolvedMessage) return null;
 
     return (
         <div
@@ -32,7 +38,7 @@ export default function SuccessMsg() {
             `}
         >
             <div className="flex items-center justify-between px-4 py-3">
-                <span className="pr-4">{flash.success}</span>
+                <span className="pr-4">{resolvedMessage}</span>
 
                 <button
                     onClick={() => setVisible(false)}

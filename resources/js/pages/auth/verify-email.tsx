@@ -1,44 +1,34 @@
-// Components
-import { Form, Head } from '@inertiajs/react';
-import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
-import { Spinner } from '@/components/ui/spinner';
-import AuthLayout from '@/layouts/auth-layout';
+
+import { Head } from '@inertiajs/react';
+import AppHeader from '@/components/app-header';
+import AppFooter from '@/components/app-footer';
+import SuccessMsg from '@/components/messages/success-msg';
+import ResendVerifyEmailForm from '@/components/forms/auth/resend-verify-email-form';
 import { logout } from '@/routes';
 import { send } from '@/routes/verification';
 
 export default function VerifyEmail({ status }: { status?: string }) {
     return (
-        <AuthLayout
-            title="Verify email"
-            description="Please verify your email address by clicking on the link we just emailed to you."
-        >
-            <Head title="Email verification" />
+        <>
+            <Head title="Verify Email">
+                <meta name="description" content="iWantiWant allows you to create and share wish lists with your friends and family" />
+            </Head>
 
-            {status === 'verification-link-sent' && (
-                <div className="mb-4 text-center text-sm font-medium text-green-600">
-                    A new verification link has been sent to the email address
-                    you provided during registration.
-                </div>
-            )}
+            <div className="flex min-h-screen flex-col items-center pb-6 pt:16 bg-gray-100 text-gray-700 lg:justify-center">
+                <AppHeader />
 
-            <Form {...send.form()} className="space-y-6 text-center">
-                {({ processing }) => (
-                    <>
-                        <Button disabled={processing} variant="secondary">
-                            {processing && <Spinner />}
-                            Resend verification email
-                        </Button>
+                <main className="flex flex-col w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 my-[8rem]">
+                    <SuccessMsg message={
+                        status === 'verification-link-sent'
+                            ? 'A new verification link has been sent to the email address you provided during registration.'
+                            : null
+                    } />
 
-                        <TextLink
-                            href={logout()}
-                            className="mx-auto block text-sm"
-                        >
-                            Log out
-                        </TextLink>
-                    </>
-                )}
-            </Form>
-        </AuthLayout>
+                    <ResendVerifyEmailForm />
+                </main>
+
+                <AppFooter />
+            </div>
+        </>
     );
 }

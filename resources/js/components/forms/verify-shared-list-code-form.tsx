@@ -11,27 +11,25 @@ export default function VerifySharedListCodeForm() {
         >
             {({ errors, processing }) => (
                 <>
-                    <div>
-                        <label className="block" htmlFor="view_list_code">
-                            If you have been sent a code enter it below to view the list.
-                        </label>
+                    <label className="block" htmlFor="view_list_code">
+                        If you have been sent a code enter it below to view the list.
+                    </label>
 
-                        <input
-                            id="view_list_code"
-                            name="view_list_code"
-                            type="text"
-                            className="w-full border mt-1 text-gray-500 p-1 focus:outline-none"
-                            maxLength={15}
-                        />
+                    <input
+                        id="view_list_code"
+                        name="view_list_code"
+                        type="text"
+                        className="w-full border mt-1 text-gray-500 p-1 focus:outline-none"
+                        maxLength={15}
+                    />
 
-                        {errors.view_list_code && (
-                            <p className="text-sm text-red-600">
-                                {errors.view_list_code}
-                            </p>
-                        )}
-                    </div>
+                    {errors.view_list_code && (
+                        <p className="text-sm text-red-600">
+                            {errors.view_list_code}
+                        </p>
+                    )}
 
-                    <div className="text-right mt-4">
+                    <div className="flex justify-end mt-4">
                         <PrimaryBtn processing={processing}>View Shared List</PrimaryBtn>
                     </div>
                 </>
