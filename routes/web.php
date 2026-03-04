@@ -34,26 +34,6 @@ Route::post('shared-list', [ListController::class, 'sharedListFromCode'])
 
 #endregion
 
-#region "Private"
-
-Route::get('contacts', function () {
-    return Inertia::render('contacts');
-})->middleware(['auth', 'verified'])->name('contacts');
-
-Route::get('dashboard', function () {
-    return Inertia::render('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('details', function () {
-    return Inertia::render('details');
-})->middleware(['auth', 'verified'])->name('details');
-
-Route::get('lists', function () {
-    return Inertia::render('lists');
-})->middleware(['auth', 'verified'])->name('lists');
-
-#endregion
-
 #region "Admin"
 
 Route::get('admin', function () {
@@ -62,4 +42,5 @@ Route::get('admin', function () {
 
 #endregion
 
+require __DIR__.'/private.php';
 require __DIR__.'/settings.php';

@@ -10,3 +10,14 @@ export type SharedData = {
     sidebarOpen: boolean;
     [key: string]: unknown;
 };
+
+export interface DashboardProps extends SharedData {
+    contactsCount: number;
+    offerNotifications: boolean;
+    privateListsCount: number;
+    publishedListsCount: number;
+    publishNotifications: boolean;
+    sharedListsCount: number;
+    shoppingItemsCount: number;
+    toBuyItemsCount: number;
+};
