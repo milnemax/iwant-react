@@ -771,7 +771,8 @@ admin.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     admin.form = adminForm
 /**
- * @see routes/private.php:7
+* @see \App\Http\Controllers\ContactController::contacts
+ * @see app/Http/Controllers/ContactController.php:33
  * @route '/contacts'
  */
 export const contacts = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -785,7 +786,8 @@ contacts.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:7
+* @see \App\Http\Controllers\ContactController::contacts
+ * @see app/Http/Controllers/ContactController.php:33
  * @route '/contacts'
  */
 contacts.url = (options?: RouteQueryOptions) => {
@@ -793,7 +795,8 @@ contacts.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:7
+* @see \App\Http\Controllers\ContactController::contacts
+ * @see app/Http/Controllers/ContactController.php:33
  * @route '/contacts'
  */
 contacts.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -801,7 +804,8 @@ contacts.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:7
+* @see \App\Http\Controllers\ContactController::contacts
+ * @see app/Http/Controllers/ContactController.php:33
  * @route '/contacts'
  */
 contacts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -810,7 +814,8 @@ contacts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:7
+* @see \App\Http\Controllers\ContactController::contacts
+ * @see app/Http/Controllers/ContactController.php:33
  * @route '/contacts'
  */
     const contactsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -819,7 +824,8 @@ contacts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:7
+* @see \App\Http\Controllers\ContactController::contacts
+ * @see app/Http/Controllers/ContactController.php:33
  * @route '/contacts'
  */
         contactsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -827,7 +833,8 @@ contacts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:7
+* @see \App\Http\Controllers\ContactController::contacts
+ * @see app/Http/Controllers/ContactController.php:33
  * @route '/contacts'
  */
         contactsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -842,8 +849,152 @@ contacts.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     contacts.form = contactsForm
 /**
+* @see \App\Http\Controllers\ContactController::contactsStore
+ * @see app/Http/Controllers/ContactController.php:46
+ * @route '/contacts'
+ */
+export const contactsStore = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: contactsStore.url(options),
+    method: 'post',
+})
+
+contactsStore.definition = {
+    methods: ["post"],
+    url: '/contacts',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\ContactController::contactsStore
+ * @see app/Http/Controllers/ContactController.php:46
+ * @route '/contacts'
+ */
+contactsStore.url = (options?: RouteQueryOptions) => {
+    return contactsStore.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\ContactController::contactsStore
+ * @see app/Http/Controllers/ContactController.php:46
+ * @route '/contacts'
+ */
+contactsStore.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: contactsStore.url(options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\ContactController::contactsStore
+ * @see app/Http/Controllers/ContactController.php:46
+ * @route '/contacts'
+ */
+    const contactsStoreForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: contactsStore.url(options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\ContactController::contactsStore
+ * @see app/Http/Controllers/ContactController.php:46
+ * @route '/contacts'
+ */
+        contactsStoreForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: contactsStore.url(options),
+            method: 'post',
+        })
+    
+    contactsStore.form = contactsStoreForm
+/**
+* @see \App\Http\Controllers\ContactController::contactsDestroy
+ * @see app/Http/Controllers/ContactController.php:16
+ * @route '/contacts/{contact}'
+ */
+export const contactsDestroy = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+    url: contactsDestroy.url(args, options),
+    method: 'delete',
+})
+
+contactsDestroy.definition = {
+    methods: ["delete"],
+    url: '/contacts/{contact}',
+} satisfies RouteDefinition<["delete"]>
+
+/**
+* @see \App\Http\Controllers\ContactController::contactsDestroy
+ * @see app/Http/Controllers/ContactController.php:16
+ * @route '/contacts/{contact}'
+ */
+contactsDestroy.url = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { contact: args }
+    }
+
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { contact: args.id }
+        }
+    
+    if (Array.isArray(args)) {
+        args = {
+                    contact: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        contact: typeof args.contact === 'object'
+                ? args.contact.id
+                : args.contact,
+                }
+
+    return contactsDestroy.definition.url
+            .replace('{contact}', parsedArgs.contact.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\ContactController::contactsDestroy
+ * @see app/Http/Controllers/ContactController.php:16
+ * @route '/contacts/{contact}'
+ */
+contactsDestroy.delete = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+    url: contactsDestroy.url(args, options),
+    method: 'delete',
+})
+
+    /**
+* @see \App\Http\Controllers\ContactController::contactsDestroy
+ * @see app/Http/Controllers/ContactController.php:16
+ * @route '/contacts/{contact}'
+ */
+    const contactsDestroyForm = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: contactsDestroy.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'DELETE',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\ContactController::contactsDestroy
+ * @see app/Http/Controllers/ContactController.php:16
+ * @route '/contacts/{contact}'
+ */
+        contactsDestroyForm.delete = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: contactsDestroy.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'DELETE',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    contactsDestroy.form = contactsDestroyForm
+/**
 * @see \App\Http\Controllers\DashboardController::dashboard
- * @see app/Http/Controllers/DashboardController.php:14
+ * @see app/Http/Controllers/DashboardController.php:15
  * @route '/dashboard'
  */
 export const dashboard = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -858,7 +1009,7 @@ dashboard.definition = {
 
 /**
 * @see \App\Http\Controllers\DashboardController::dashboard
- * @see app/Http/Controllers/DashboardController.php:14
+ * @see app/Http/Controllers/DashboardController.php:15
  * @route '/dashboard'
  */
 dashboard.url = (options?: RouteQueryOptions) => {
@@ -867,7 +1018,7 @@ dashboard.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\DashboardController::dashboard
- * @see app/Http/Controllers/DashboardController.php:14
+ * @see app/Http/Controllers/DashboardController.php:15
  * @route '/dashboard'
  */
 dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -876,7 +1027,7 @@ dashboard.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\DashboardController::dashboard
- * @see app/Http/Controllers/DashboardController.php:14
+ * @see app/Http/Controllers/DashboardController.php:15
  * @route '/dashboard'
  */
 dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -886,7 +1037,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\DashboardController::dashboard
- * @see app/Http/Controllers/DashboardController.php:14
+ * @see app/Http/Controllers/DashboardController.php:15
  * @route '/dashboard'
  */
     const dashboardForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -896,7 +1047,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\DashboardController::dashboard
- * @see app/Http/Controllers/DashboardController.php:14
+ * @see app/Http/Controllers/DashboardController.php:15
  * @route '/dashboard'
  */
         dashboardForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -905,7 +1056,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\DashboardController::dashboard
- * @see app/Http/Controllers/DashboardController.php:14
+ * @see app/Http/Controllers/DashboardController.php:15
  * @route '/dashboard'
  */
         dashboardForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -920,7 +1071,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     dashboard.form = dashboardForm
 /**
- * @see routes/private.php:15
+ * @see routes/private.php:24
  * @route '/details'
  */
 export const details = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -934,7 +1085,7 @@ details.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:15
+ * @see routes/private.php:24
  * @route '/details'
  */
 details.url = (options?: RouteQueryOptions) => {
@@ -942,7 +1093,7 @@ details.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:15
+ * @see routes/private.php:24
  * @route '/details'
  */
 details.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -950,7 +1101,7 @@ details.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:15
+ * @see routes/private.php:24
  * @route '/details'
  */
 details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -959,7 +1110,7 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:15
+ * @see routes/private.php:24
  * @route '/details'
  */
     const detailsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -968,7 +1119,7 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:15
+ * @see routes/private.php:24
  * @route '/details'
  */
         detailsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -976,7 +1127,7 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:15
+ * @see routes/private.php:24
  * @route '/details'
  */
         detailsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -991,7 +1142,7 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     details.form = detailsForm
 /**
- * @see routes/private.php:19
+ * @see routes/private.php:28
  * @route '/lists'
  */
 export const lists = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1005,7 +1156,7 @@ lists.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:19
+ * @see routes/private.php:28
  * @route '/lists'
  */
 lists.url = (options?: RouteQueryOptions) => {
@@ -1013,7 +1164,7 @@ lists.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:19
+ * @see routes/private.php:28
  * @route '/lists'
  */
 lists.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1021,7 +1172,7 @@ lists.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:19
+ * @see routes/private.php:28
  * @route '/lists'
  */
 lists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1030,7 +1181,7 @@ lists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:19
+ * @see routes/private.php:28
  * @route '/lists'
  */
     const listsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1039,7 +1190,7 @@ lists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:19
+ * @see routes/private.php:28
  * @route '/lists'
  */
         listsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1047,7 +1198,7 @@ lists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:19
+ * @see routes/private.php:28
  * @route '/lists'
  */
         listsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1062,7 +1213,7 @@ lists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     lists.form = listsForm
 /**
- * @see routes/private.php:23
+ * @see routes/private.php:32
  * @route '/shared-lists'
  */
 export const sharedLists = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1076,7 +1227,7 @@ sharedLists.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:23
+ * @see routes/private.php:32
  * @route '/shared-lists'
  */
 sharedLists.url = (options?: RouteQueryOptions) => {
@@ -1084,7 +1235,7 @@ sharedLists.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:23
+ * @see routes/private.php:32
  * @route '/shared-lists'
  */
 sharedLists.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1092,7 +1243,7 @@ sharedLists.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:23
+ * @see routes/private.php:32
  * @route '/shared-lists'
  */
 sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1101,7 +1252,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:23
+ * @see routes/private.php:32
  * @route '/shared-lists'
  */
     const sharedListsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1110,7 +1261,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:23
+ * @see routes/private.php:32
  * @route '/shared-lists'
  */
         sharedListsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1118,7 +1269,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:23
+ * @see routes/private.php:32
  * @route '/shared-lists'
  */
         sharedListsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1133,7 +1284,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     sharedLists.form = sharedListsForm
 /**
- * @see routes/private.php:27
+ * @see routes/private.php:36
  * @route '/shopping-list'
  */
 export const shoppingList = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1147,7 +1298,7 @@ shoppingList.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:27
+ * @see routes/private.php:36
  * @route '/shopping-list'
  */
 shoppingList.url = (options?: RouteQueryOptions) => {
@@ -1155,7 +1306,7 @@ shoppingList.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:27
+ * @see routes/private.php:36
  * @route '/shopping-list'
  */
 shoppingList.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1163,7 +1314,7 @@ shoppingList.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:27
+ * @see routes/private.php:36
  * @route '/shopping-list'
  */
 shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1172,7 +1323,7 @@ shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:27
+ * @see routes/private.php:36
  * @route '/shopping-list'
  */
     const shoppingListForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1181,7 +1332,7 @@ shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:27
+ * @see routes/private.php:36
  * @route '/shopping-list'
  */
         shoppingListForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1189,7 +1340,7 @@ shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:27
+ * @see routes/private.php:36
  * @route '/shopping-list'
  */
         shoppingListForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

@@ -1,6 +1,6 @@
 import { Form } from '@inertiajs/react';
 import { verifySharedListForm } from '@/routes';
-import { PrimaryBtn } from '@/components/forms/primary-btn';
+import { SubmitBtn } from '@/components/forms/submit-btn';
 
 export default function VerifySharedListCodeForm() {
     return (
@@ -30,7 +30,7 @@ export default function VerifySharedListCodeForm() {
                     )}
 
                     <div className="flex justify-end mt-4">
-                        <PrimaryBtn processing={processing}>View Shared List</PrimaryBtn>
+                        <SubmitBtn processing={processing}>View Shared List</SubmitBtn>
                     </div>
                 </>
             )}

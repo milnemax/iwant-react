@@ -2,7 +2,7 @@ import { Form, Link } from '@inertiajs/react';
 import { privacy } from '../../../routes/index';
 import { store } from '../../../routes/login/index';
 import { request } from '../../../routes/password/index';
-import { PrimaryBtn } from '../primary-btn';
+import { SubmitBtn } from '../submit-btn';
 
 export default function LoginForm() {
     return (
@@ -35,7 +35,7 @@ export default function LoginForm() {
                     <div className="flex justify-between mt-4">
                         <Link href={request()} className="underline text-[#336b87] hover:text-gray-700" aria-label="Forgotten your password?">Forgotten your password?</Link>
 
-                        <PrimaryBtn processing={processing}>Login</PrimaryBtn>
+                        <SubmitBtn processing={processing}>Login</SubmitBtn>
                     </div>
                 </>
             )}

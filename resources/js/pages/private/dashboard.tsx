@@ -27,9 +27,9 @@ export default function Dashboard() {
             <div className="flex min-h-screen flex-col items-center pb-6 pt:16 bg-gray-100 text-gray-700 lg:justify-center">
                 <AppHeader />
 
-                <main className="flex flex-col w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 my-[8rem]">
-                    <h1 className="text-2xl mb-1">Welcome Back {auth.user.name}</h1>
-                    <p className="mb-4">Manage all aspects of your account using the information and links below:</p>
+                <main className="flex flex-col w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 my-[8rem] px-3">
+                    <h1 className="text-2xl mb-1 text-center">Welcome Back {auth.user.name}</h1>
+                    <p className="mb-4 text-center">Manage all aspects of your account using the information and links below:</p>
 
                     <div className="w-full max-w-[335px] lg:max-w-4xl grid sm:grid-cols-2 gap-4 my-4">
                         <DashboardCard ctaText="Your Shopping List" icon={ShoppingCart} linkTarget={shoppingList()} linkTitle="Manage Your Shopping List">

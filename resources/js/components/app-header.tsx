@@ -55,7 +55,7 @@ const adminNavItems: NavItem[] = [
 
 export default function AppHeader() {
     const { auth } = usePage<SharedData>().props;
-    const [menuOpen, setMenuOpen] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
         <header className="bg-[#336b87] fixed top-0 right-0 left-0 z-10">

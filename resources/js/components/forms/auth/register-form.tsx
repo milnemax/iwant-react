@@ -1,7 +1,7 @@
 import { Form, Link } from '@inertiajs/react';
 import { privacy } from '../../../routes/index';
 import { store } from '@/routes/register';
-import { PrimaryBtn } from '../primary-btn';
+import { SubmitBtn } from '../submit-btn';
 
 export default function RegisterForm() {
     return (
@@ -66,7 +66,7 @@ export default function RegisterForm() {
                     </p>
 
                     <div className="flex justify-end mt-4">
-                        <PrimaryBtn processing={processing}>Register</PrimaryBtn>
+                        <SubmitBtn processing={processing}>Register</SubmitBtn>
                     </div>
                 </>
             )}

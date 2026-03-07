@@ -1,6 +1,6 @@
 import { Form, Link } from '@inertiajs/react';
 import { logout } from '../../../routes/index';
-import { PrimaryBtn } from '../primary-btn';
+import { SubmitBtn } from '../submit-btn';
 import { send } from '@/routes/verification';
 import {request} from "@/routes/password";
 
@@ -18,7 +18,7 @@ export default function ResendVerifyEmailForm() {
                     <div className="flex justify-between mt-4">
                         <Link href={logout()} className="underline text-[#336b87] hover:text-gray-700" aria-label="Log out">Log out</Link>
 
-                        <PrimaryBtn processing={processing}>Resend verification email</PrimaryBtn>
+                        <SubmitBtn processing={processing}>Resend verification email</SubmitBtn>
                     </div>
                 </>
             )}

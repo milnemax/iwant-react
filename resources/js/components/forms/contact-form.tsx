@@ -1,6 +1,6 @@
 import { Form } from '@inertiajs/react';
 import { contactUsForm } from '@/routes';
-import { PrimaryBtn } from '@/components/forms/primary-btn';
+import { SubmitBtn } from '@/components/forms/submit-btn';
 
 export default function ContactForm() {
     return (
@@ -24,7 +24,7 @@ export default function ContactForm() {
                     )}
 
                     <div className="flex justify-end mt-4">
-                        <PrimaryBtn processing={processing}>Contact Controller</PrimaryBtn>
+                        <SubmitBtn processing={processing}>Contact Controller</SubmitBtn>
                     </div>
                 </>
             )}

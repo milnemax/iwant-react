@@ -1,22 +1,20 @@
+import * as React from "react";
 import { Loader2Icon } from "lucide-react"
 
-type PrimaryBtnProps = React.ComponentProps<"button"> & {
-    processing?: boolean,
-    buttonClick: () => void,
+type SubmitBtnProps = React.ComponentProps<"button"> & {
+    processing?: boolean;
 };
 
-function PrimaryBtn({
+function SubmitBtn({
     processing = false,
-    buttonClick,
     className = "",
     children,
     ...props
-}: PrimaryBtnProps)
+}: SubmitBtnProps)
 {
     return (
         <button
-            type="button"
-            onClick={() => buttonClick()}
+            type="submit"
             disabled={processing || props.disabled}
             className="text-white border border-gray-700 bg-gray-700 py-2 px-3 rounded hover:text-gray-300 hover:bg-gray-600 cursor-pointer flex items-center"
         >
@@ -32,4 +30,4 @@ function PrimaryBtn({
     )
 }
 
-export { PrimaryBtn }
+export { SubmitBtn }
