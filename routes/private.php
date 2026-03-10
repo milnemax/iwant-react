@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ListController;
+use App\Http\Controllers\ListItemController;
+use App\Http\Controllers\LookUpController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,19 +18,55 @@ Route::post('contacts', [ContactController::class, 'store'])
 
 Route::delete('contacts/{contact}', [ContactController::class, 'destroy'])
     ->middleware(['auth', 'verified'])
-    ->name('contacts-destroy');
+    ->name('contact-destroy');
+
 
 Route::get('dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+
 Route::get('details', function () {
     return Inertia::render('details');
 })->middleware(['auth', 'verified'])->name('details');
 
-Route::get('lists', function () {
-    return Inertia::render('lists');
-})->middleware(['auth', 'verified'])->name('lists');
+
+Route::get('lists', [ListController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('lists');
+
+Route::post('lists', [ListController::class, 'store'])
+    ->middleware(['auth', 'verified'])
+    ->name('lists-store');
+
+Route::get('lists/{list}', [ListController::class, 'show'])
+    ->middleware(['auth', 'verified'])
+    ->name('list-show');
+
+Route::put('lists/{list}', [ListController::class, 'update'])
+    ->middleware(['auth', 'verified'])
+    ->name('list-update');
+
+Route::delete('lists/{list}', [ListController::class, 'destroy'])
+    ->middleware(['auth', 'verified'])
+    ->name('list-destroy');
+
+
+Route::post('lists/{list}/items', [ListItemController::class, 'store'])
+    ->middleware(['auth', 'verified'])
+    ->name('list-items-store');
+
+Route::get('lists/{list}/items/{item}/edit', [ListItemController::class, 'edit'])
+    ->middleware(['auth', 'verified'])
+    ->name('list-item-edit');
+
+Route::delete('lists/{list}/items/{item}', [ListItemController::class, 'destroy'])
+    ->middleware(['auth', 'verified'])
+    ->name('list-item-destroy');
+
+Route::get('look-up/search', [LookUpController::class, 'search'])
+    ->middleware(['auth', 'verified'])
+    ->name('look-up-search');
 
 Route::get('shared-lists', function () {
     return Inertia::render('shared-lists');

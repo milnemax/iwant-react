@@ -10,7 +10,7 @@ export default function ContactCard({ contact, onDeleteClick }: ContactCardProps
     return (
         <div
             aria-label={`Delete ${contact.name}`}
-            className="flex w-full my-2 border border-gray-500 rounded shadow p-2 cursor-pointer bg-white hover:bg-gray-100 items-center"
+            className="flex w-full my-2 border border-gray-500 rounded-lg shadow-lg p-4 cursor-pointer bg-white hover:bg-gray-100 items-center"
             onClick={() => onDeleteClick(contact)}
         >
             <div className="flex-grow">

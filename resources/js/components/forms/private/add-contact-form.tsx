@@ -15,7 +15,7 @@ export default function AddContactForm() {
                     <h3 className="text-xl my-2">Add Contact</h3>
 
                     <label className="block" htmlFor="contact_name">Name</label>
-                    <input type="text" name="contact_name" className="w-full border mt-1 text-gray-500 p-1 focus:outline-none" required autofocus />
+                    <input type="text" name="contact_name" className="w-full border mt-1 text-gray-500 p-1 focus:outline-none" required autoFocus />
                     {errors.contact_name && ( <p className="text-sm text-red-600">{errors.contact_name}</p>)}
 
                     <label className="block mt-2" htmlFor="contact_email">Email</label>
