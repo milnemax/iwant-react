@@ -10,6 +10,7 @@ import ErrorMsg from '@/components/messages/error-msg';
 import Pagination from '@/components/pagination';
 import AddListItemForm from '@/components/forms/private/add-list-item-form';
 import EditListForm from '@/components/forms/private/edit-list-form';
+import ShareListForm from '@/components/forms/private/share-list-form';
 import {CancelBtn} from '@/components/forms/cancel-btn';
 import {PrimaryBtn} from '@/components/forms/primary-btn';
 import type { PaginatedListItems, ListItem, List, ListType } from '@/types';
@@ -34,9 +35,8 @@ export default function List() {
                 <ErrorMsg />
 
                 <main className="flex flex-col w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 my-[8rem] px-3">
-                   <EditListForm />
-
-                    <p>Share List</p>
+                    <EditListForm />
+                    <ShareListForm />
 
                     <h1 className="text-2xl mb-1 text-center">List Items</h1>
                     <p className="mb-4 text-center">All of your list items are shown below click to manage an individual item, or use the form below to add a new one.</p>

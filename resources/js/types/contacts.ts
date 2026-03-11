@@ -5,6 +5,13 @@ export type Contact = {
     unsubscribed: boolean
 }
 
+export type ListContact = {
+    id: number
+    name: string
+    shared: boolean
+    listLabel: string
+}
+
 export type PaginationLink = {
     url: string | null
     label: string

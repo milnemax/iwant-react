@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\ListController::sharedList
- * @see app/Http/Controllers/ListController.php:136
+ * @see app/Http/Controllers/ListController.php:154
  * @route '/shared-list/{list}/{code}'
  */
 export const sharedList = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ sharedList.definition = {
 
 /**
 * @see \App\Http\Controllers\ListController::sharedList
- * @see app/Http/Controllers/ListController.php:136
+ * @see app/Http/Controllers/ListController.php:154
  * @route '/shared-list/{list}/{code}'
  */
 sharedList.url = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions) => {
@@ -42,7 +42,7 @@ sharedList.url = (args: { list: string | number, code: string | number } | [list
 
 /**
 * @see \App\Http\Controllers\ListController::sharedList
- * @see app/Http/Controllers/ListController.php:136
+ * @see app/Http/Controllers/ListController.php:154
  * @route '/shared-list/{list}/{code}'
  */
 sharedList.get = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -51,7 +51,7 @@ sharedList.get = (args: { list: string | number, code: string | number } | [list
 })
 /**
 * @see \App\Http\Controllers\ListController::sharedList
- * @see app/Http/Controllers/ListController.php:136
+ * @see app/Http/Controllers/ListController.php:154
  * @route '/shared-list/{list}/{code}'
  */
 sharedList.head = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -61,7 +61,7 @@ sharedList.head = (args: { list: string | number, code: string | number } | [lis
 
     /**
 * @see \App\Http\Controllers\ListController::sharedList
- * @see app/Http/Controllers/ListController.php:136
+ * @see app/Http/Controllers/ListController.php:154
  * @route '/shared-list/{list}/{code}'
  */
     const sharedListForm = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -71,7 +71,7 @@ sharedList.head = (args: { list: string | number, code: string | number } | [lis
 
             /**
 * @see \App\Http\Controllers\ListController::sharedList
- * @see app/Http/Controllers/ListController.php:136
+ * @see app/Http/Controllers/ListController.php:154
  * @route '/shared-list/{list}/{code}'
  */
         sharedListForm.get = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -80,7 +80,7 @@ sharedList.head = (args: { list: string | number, code: string | number } | [lis
         })
             /**
 * @see \App\Http\Controllers\ListController::sharedList
- * @see app/Http/Controllers/ListController.php:136
+ * @see app/Http/Controllers/ListController.php:154
  * @route '/shared-list/{list}/{code}'
  */
         sharedListForm.head = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -96,7 +96,7 @@ sharedList.head = (args: { list: string | number, code: string | number } | [lis
     sharedList.form = sharedListForm
 /**
 * @see \App\Http\Controllers\ListController::sharedListFromCode
- * @see app/Http/Controllers/ListController.php:156
+ * @see app/Http/Controllers/ListController.php:174
  * @route '/shared-list'
  */
 export const sharedListFromCode = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -111,7 +111,7 @@ sharedListFromCode.definition = {
 
 /**
 * @see \App\Http\Controllers\ListController::sharedListFromCode
- * @see app/Http/Controllers/ListController.php:156
+ * @see app/Http/Controllers/ListController.php:174
  * @route '/shared-list'
  */
 sharedListFromCode.url = (options?: RouteQueryOptions) => {
@@ -120,7 +120,7 @@ sharedListFromCode.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ListController::sharedListFromCode
- * @see app/Http/Controllers/ListController.php:156
+ * @see app/Http/Controllers/ListController.php:174
  * @route '/shared-list'
  */
 sharedListFromCode.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -130,7 +130,7 @@ sharedListFromCode.post = (options?: RouteQueryOptions): RouteDefinition<'post'>
 
     /**
 * @see \App\Http\Controllers\ListController::sharedListFromCode
- * @see app/Http/Controllers/ListController.php:156
+ * @see app/Http/Controllers/ListController.php:174
  * @route '/shared-list'
  */
     const sharedListFromCodeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -140,7 +140,7 @@ sharedListFromCode.post = (options?: RouteQueryOptions): RouteDefinition<'post'>
 
             /**
 * @see \App\Http\Controllers\ListController::sharedListFromCode
- * @see app/Http/Controllers/ListController.php:156
+ * @see app/Http/Controllers/ListController.php:174
  * @route '/shared-list'
  */
         sharedListFromCodeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -151,7 +151,7 @@ sharedListFromCode.post = (options?: RouteQueryOptions): RouteDefinition<'post'>
     sharedListFromCode.form = sharedListFromCodeForm
 /**
 * @see \App\Http\Controllers\ListController::index
- * @see app/Http/Controllers/ListController.php:35
+ * @see app/Http/Controllers/ListController.php:40
  * @route '/lists'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -166,7 +166,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\ListController::index
- * @see app/Http/Controllers/ListController.php:35
+ * @see app/Http/Controllers/ListController.php:40
  * @route '/lists'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -175,7 +175,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ListController::index
- * @see app/Http/Controllers/ListController.php:35
+ * @see app/Http/Controllers/ListController.php:40
  * @route '/lists'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -184,7 +184,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\ListController::index
- * @see app/Http/Controllers/ListController.php:35
+ * @see app/Http/Controllers/ListController.php:40
  * @route '/lists'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -194,7 +194,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\ListController::index
- * @see app/Http/Controllers/ListController.php:35
+ * @see app/Http/Controllers/ListController.php:40
  * @route '/lists'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -204,7 +204,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\ListController::index
- * @see app/Http/Controllers/ListController.php:35
+ * @see app/Http/Controllers/ListController.php:40
  * @route '/lists'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -213,7 +213,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\ListController::index
- * @see app/Http/Controllers/ListController.php:35
+ * @see app/Http/Controllers/ListController.php:40
  * @route '/lists'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -229,7 +229,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\ListController::store
- * @see app/Http/Controllers/ListController.php:91
+ * @see app/Http/Controllers/ListController.php:109
  * @route '/lists'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -244,7 +244,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\ListController::store
- * @see app/Http/Controllers/ListController.php:91
+ * @see app/Http/Controllers/ListController.php:109
  * @route '/lists'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -253,7 +253,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ListController::store
- * @see app/Http/Controllers/ListController.php:91
+ * @see app/Http/Controllers/ListController.php:109
  * @route '/lists'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -263,7 +263,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ListController::store
- * @see app/Http/Controllers/ListController.php:91
+ * @see app/Http/Controllers/ListController.php:109
  * @route '/lists'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -273,7 +273,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ListController::store
- * @see app/Http/Controllers/ListController.php:91
+ * @see app/Http/Controllers/ListController.php:109
  * @route '/lists'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -284,7 +284,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\ListController::show
- * @see app/Http/Controllers/ListController.php:60
+ * @see app/Http/Controllers/ListController.php:65
  * @route '/lists/{list}'
  */
 export const show = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -299,7 +299,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\ListController::show
- * @see app/Http/Controllers/ListController.php:60
+ * @see app/Http/Controllers/ListController.php:65
  * @route '/lists/{list}'
  */
 show.url = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -332,7 +332,7 @@ show.url = (args: { list: number | { id: number } } | [list: number | { id: numb
 
 /**
 * @see \App\Http\Controllers\ListController::show
- * @see app/Http/Controllers/ListController.php:60
+ * @see app/Http/Controllers/ListController.php:65
  * @route '/lists/{list}'
  */
 show.get = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -341,7 +341,7 @@ show.get = (args: { list: number | { id: number } } | [list: number | { id: numb
 })
 /**
 * @see \App\Http\Controllers\ListController::show
- * @see app/Http/Controllers/ListController.php:60
+ * @see app/Http/Controllers/ListController.php:65
  * @route '/lists/{list}'
  */
 show.head = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -351,7 +351,7 @@ show.head = (args: { list: number | { id: number } } | [list: number | { id: num
 
     /**
 * @see \App\Http\Controllers\ListController::show
- * @see app/Http/Controllers/ListController.php:60
+ * @see app/Http/Controllers/ListController.php:65
  * @route '/lists/{list}'
  */
     const showForm = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -361,7 +361,7 @@ show.head = (args: { list: number | { id: number } } | [list: number | { id: num
 
             /**
 * @see \App\Http\Controllers\ListController::show
- * @see app/Http/Controllers/ListController.php:60
+ * @see app/Http/Controllers/ListController.php:65
  * @route '/lists/{list}'
  */
         showForm.get = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -370,7 +370,7 @@ show.head = (args: { list: number | { id: number } } | [list: number | { id: num
         })
             /**
 * @see \App\Http\Controllers\ListController::show
- * @see app/Http/Controllers/ListController.php:60
+ * @see app/Http/Controllers/ListController.php:65
  * @route '/lists/{list}'
  */
         showForm.head = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -386,7 +386,7 @@ show.head = (args: { list: number | { id: number } } | [list: number | { id: num
     show.form = showForm
 /**
 * @see \App\Http\Controllers\ListController::update
- * @see app/Http/Controllers/ListController.php:111
+ * @see app/Http/Controllers/ListController.php:129
  * @route '/lists/{list}'
  */
 export const update = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -401,7 +401,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\ListController::update
- * @see app/Http/Controllers/ListController.php:111
+ * @see app/Http/Controllers/ListController.php:129
  * @route '/lists/{list}'
  */
 update.url = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -434,7 +434,7 @@ update.url = (args: { list: number | { id: number } } | [list: number | { id: nu
 
 /**
 * @see \App\Http\Controllers\ListController::update
- * @see app/Http/Controllers/ListController.php:111
+ * @see app/Http/Controllers/ListController.php:129
  * @route '/lists/{list}'
  */
 update.put = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -444,7 +444,7 @@ update.put = (args: { list: number | { id: number } } | [list: number | { id: nu
 
     /**
 * @see \App\Http\Controllers\ListController::update
- * @see app/Http/Controllers/ListController.php:111
+ * @see app/Http/Controllers/ListController.php:129
  * @route '/lists/{list}'
  */
     const updateForm = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -459,7 +459,7 @@ update.put = (args: { list: number | { id: number } } | [list: number | { id: nu
 
             /**
 * @see \App\Http\Controllers\ListController::update
- * @see app/Http/Controllers/ListController.php:111
+ * @see app/Http/Controllers/ListController.php:129
  * @route '/lists/{list}'
  */
         updateForm.put = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -474,8 +474,97 @@ update.put = (args: { list: number | { id: number } } | [list: number | { id: nu
     
     update.form = updateForm
 /**
+* @see \App\Http\Controllers\ListController::share
+ * @see app/Http/Controllers/ListController.php:221
+ * @route '/lists/{list}/share'
+ */
+export const share = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: share.url(args, options),
+    method: 'put',
+})
+
+share.definition = {
+    methods: ["put"],
+    url: '/lists/{list}/share',
+} satisfies RouteDefinition<["put"]>
+
+/**
+* @see \App\Http\Controllers\ListController::share
+ * @see app/Http/Controllers/ListController.php:221
+ * @route '/lists/{list}/share'
+ */
+share.url = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { list: args }
+    }
+
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { list: args.id }
+        }
+    
+    if (Array.isArray(args)) {
+        args = {
+                    list: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        list: typeof args.list === 'object'
+                ? args.list.id
+                : args.list,
+                }
+
+    return share.definition.url
+            .replace('{list}', parsedArgs.list.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\ListController::share
+ * @see app/Http/Controllers/ListController.php:221
+ * @route '/lists/{list}/share'
+ */
+share.put = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: share.url(args, options),
+    method: 'put',
+})
+
+    /**
+* @see \App\Http\Controllers\ListController::share
+ * @see app/Http/Controllers/ListController.php:221
+ * @route '/lists/{list}/share'
+ */
+    const shareForm = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: share.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PUT',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\ListController::share
+ * @see app/Http/Controllers/ListController.php:221
+ * @route '/lists/{list}/share'
+ */
+        shareForm.put = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: share.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    share.form = shareForm
+/**
 * @see \App\Http\Controllers\ListController::destroy
- * @see app/Http/Controllers/ListController.php:18
+ * @see app/Http/Controllers/ListController.php:23
  * @route '/lists/{list}'
  */
 export const destroy = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -490,7 +579,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\ListController::destroy
- * @see app/Http/Controllers/ListController.php:18
+ * @see app/Http/Controllers/ListController.php:23
  * @route '/lists/{list}'
  */
 destroy.url = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -523,7 +612,7 @@ destroy.url = (args: { list: number | { id: number } } | [list: number | { id: n
 
 /**
 * @see \App\Http\Controllers\ListController::destroy
- * @see app/Http/Controllers/ListController.php:18
+ * @see app/Http/Controllers/ListController.php:23
  * @route '/lists/{list}'
  */
 destroy.delete = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -533,7 +622,7 @@ destroy.delete = (args: { list: number | { id: number } } | [list: number | { id
 
     /**
 * @see \App\Http\Controllers\ListController::destroy
- * @see app/Http/Controllers/ListController.php:18
+ * @see app/Http/Controllers/ListController.php:23
  * @route '/lists/{list}'
  */
     const destroyForm = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -548,7 +637,7 @@ destroy.delete = (args: { list: number | { id: number } } | [list: number | { id
 
             /**
 * @see \App\Http\Controllers\ListController::destroy
- * @see app/Http/Controllers/ListController.php:18
+ * @see app/Http/Controllers/ListController.php:23
  * @route '/lists/{list}'
  */
         destroyForm.delete = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -562,6 +651,6 @@ destroy.delete = (args: { list: number | { id: number } } | [list: number | { id
         })
     
     destroy.form = destroyForm
-const ListController = { sharedList, sharedListFromCode, index, store, show, update, destroy }
+const ListController = { sharedList, sharedListFromCode, index, store, show, update, share, destroy }
 
 export default ListController

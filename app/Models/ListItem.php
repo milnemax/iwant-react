@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -56,8 +57,10 @@ class ListItem extends Model
             ->withPivot('type', 'message');
     }
 
-    public function getClaimedAttribute(): bool
+    protected function claimed(): Attribute
     {
-        return $this->contacts()->wherePivot('type', 'claim')->exists();
+        return Attribute::make(
+            get: fn (): bool => $this->contacts()->wherePivot('type', 'claim')->exists(),
+        );
     }
 }

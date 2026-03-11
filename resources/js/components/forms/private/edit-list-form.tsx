@@ -32,7 +32,7 @@ export default function EditListForm() {
     }, [selectedType, page.props]);
 
     return (
-        <details className="shadow-lg rounded-lg bg-white w-full max-w-[335px] lg:max-w-4xl my-20">
+        <details className="shadow-lg rounded-lg bg-white w-full max-w-[335px] lg:max-w-4xl mt-20 mb-6">
             <summary className="cursor-pointer px-6 py-4 text-2xl text-[#336b87]">
                 Edit {list.name}
             </summary>

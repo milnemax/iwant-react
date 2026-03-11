@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ShareNotification;
+use App\Models\GdprLog;
 use App\Models\ListType;
+use App\Models\Unsubscribe;
 use App\Models\User;
 use App\Models\WishList;
 use App\Pivots\ContactWishList;
@@ -10,6 +13,8 @@ use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -65,7 +70,7 @@ class ListController extends Controller
             return redirect('/lists');
         }
 
-        $list->load('listType');
+        $list->load('listType', 'contacts');
 
         $listTypes = ListType::orderBy('name')->get();
         $items = $list->items()
@@ -77,9 +82,22 @@ class ListController extends Controller
         $christmas = $this->getNextChristmas();
         $birthday = $this->getNextBirthday($user);
 
+        $listContacts = [];
+        foreach($user->contacts as $contact) {
+            $listContacts[] = [
+                'id' => $contact->id,
+                'name' => $contact->name,
+                'listLabel' => ($list->contacts->where('id', $contact->id)->count() === 1)
+                    ? ($contact->unsubscribed ?  'share code: ' . $list->id . '_' . $list->contacts->where('id', $contact->id)->first()->pivot->code : $contact->email)
+                    : ($contact->unsubscribed ? 'unable to email' : $contact->email),
+                'shared' => ($list->contacts->where('id', $contact->id)->count() === 1)
+            ];
+        }
+
         return Inertia::render('private/list', [
             'list' => $list,
             'items' => $items,
+            'contacts' => $listContacts,
             'listTypes' => $listTypes,
             'christmas' => $christmas,
             'birthday' => $birthday,
@@ -196,6 +214,70 @@ class ListController extends Controller
         return $date->format('Y-m-d');
     }
 
-#endregion
+    #endregion
 
+    #region "Sharing Lists"
+
+    public function share(Request $request, WishList $list): RedirectResponse
+    {
+        $user = Auth::user();
+
+        if ($list->user_id !== $user->id) {
+            return redirect('/lists');
+        }
+
+        $contacts = $request->input('contacts', []);
+
+        foreach($contacts as $contact) {
+            ContactWishList::firstOrCreate(
+                [
+                    'contact_id' => $contact,
+                    'wish_list_id' => $list->id
+                ],
+                [
+                    'code' =>  $this->getUniqueCode()
+                ]
+            );
+        }
+
+        ContactWishList::where('wish_list_id', $list->id)
+            ->whereNotIn('contact_id', $contacts)
+            ->delete();
+
+        $this->sendListNotifications($list);
+
+        return redirect("/lists/{$list->id}")
+            ->with('success', "Your lists share status has been updated");
+    }
+
+    private function getUniqueCode(): string
+    {
+        $code = Str::random(8);
+
+        if (ContactWishList::where('code', $code)->exists()) {
+            return $this->getUniqueCode();
+        }
+
+        return $code;
+    }
+
+    private function sendListNotifications(WishList $list): void
+    {
+        foreach($list->contacts()->get() as $contact) {
+            if ($contact->can_send_share) {
+                $hasPrevEmail = GdprLog::where('identifier', Unsubscribe::hashEmail($contact->email))
+                    ->where('event', "Share Notification - {$list->id}")
+                    ->where('created_at', '>', Carbon::now()->subWeek())
+                    ->exists();
+
+                if (!$hasPrevEmail) {
+                    GdprLog::logEvent($contact->email, "Share Notification - {$list->id}");
+
+                    Mail::to($contact->email)->send(new ShareNotification($contact, $list));
+                }
+            }
+        }
+    }
+
+    #endregion
 }

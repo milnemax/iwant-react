@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -42,28 +43,42 @@ class Contact extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getUnsubscribedAttribute(): bool
+    protected function unsubscribed(): Attribute
     {
-        return Unsubscribe::where('email', Unsubscribe::hashEmail($this->email))->exists();
+        return Attribute::make(
+            get: fn (): bool => Unsubscribe::where('email', Unsubscribe::hashEmail($this->email))->exists(),
+        );
     }
 
-    public function getCanSendOfferAttribute(): bool
+    protected function canSendOffer(): Attribute
     {
-        if ($this->user) {
-            return $this->user->hasVerifiedEmail()
-                && $this->user->emailPreferences()->where('id', EmailPreference::OFFER)->exists();
-        }
+        return Attribute::make(
+            get: function (): bool {
+                if ($this->user) {
+                    return $this->user->hasVerifiedEmail()
+                        && $this->user->emailPreferences()
+                            ->where('id', EmailPreference::OFFER)
+                            ->exists();
+                }
 
-        return !$this->unsubscribed;
+                return !$this->unsubscribed;
+            },
+        );
     }
 
-    public function getCanSendShareAttribute(): bool
+    protected function canSendShare(): Attribute
     {
-        if ($this->user) {
-            return $this->user->hasVerifiedEmail()
-                && $this->user->emailPreferences()->where('id', EmailPreference::PUBLISH)->exists();
-        }
+        return Attribute::make(
+            get: function (): bool {
+                if ($this->user) {
+                    return $this->user->hasVerifiedEmail()
+                        && $this->user->emailPreferences()
+                            ->where('id', EmailPreference::PUBLISH)
+                            ->exists();
+                }
 
-        return !$this->unsubscribed;
+                return ! $this->unsubscribed;
+            },
+        );
     }
 }

@@ -47,6 +47,10 @@ Route::put('lists/{list}', [ListController::class, 'update'])
     ->middleware(['auth', 'verified'])
     ->name('list-update');
 
+Route::put('lists/{list}/share', [ListController::class, 'share'])
+    ->middleware(['auth', 'verified'])
+    ->name('list-share');
+
 Route::delete('lists/{list}', [ListController::class, 'destroy'])
     ->middleware(['auth', 'verified'])
     ->name('list-destroy');
