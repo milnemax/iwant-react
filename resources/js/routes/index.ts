@@ -1071,7 +1071,7 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     dashboard.form = dashboardForm
 /**
- * @see routes/private.php:29
+ * @see routes/private.php:30
  * @route '/details'
  */
 export const details = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1085,7 +1085,7 @@ details.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:29
+ * @see routes/private.php:30
  * @route '/details'
  */
 details.url = (options?: RouteQueryOptions) => {
@@ -1093,7 +1093,7 @@ details.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:29
+ * @see routes/private.php:30
  * @route '/details'
  */
 details.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1101,7 +1101,7 @@ details.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:29
+ * @see routes/private.php:30
  * @route '/details'
  */
 details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1110,7 +1110,7 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:29
+ * @see routes/private.php:30
  * @route '/details'
  */
     const detailsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1119,7 +1119,7 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:29
+ * @see routes/private.php:30
  * @route '/details'
  */
         detailsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1127,7 +1127,7 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:29
+ * @see routes/private.php:30
  * @route '/details'
  */
         detailsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1986,7 +1986,7 @@ lookUpSearch.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     lookUpSearch.form = lookUpSearchForm
 /**
- * @see routes/private.php:75
+ * @see routes/private.php:76
  * @route '/shared-lists'
  */
 export const sharedLists = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -2000,7 +2000,7 @@ sharedLists.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:75
+ * @see routes/private.php:76
  * @route '/shared-lists'
  */
 sharedLists.url = (options?: RouteQueryOptions) => {
@@ -2008,7 +2008,7 @@ sharedLists.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:75
+ * @see routes/private.php:76
  * @route '/shared-lists'
  */
 sharedLists.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -2016,7 +2016,7 @@ sharedLists.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:75
+ * @see routes/private.php:76
  * @route '/shared-lists'
  */
 sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -2025,7 +2025,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:75
+ * @see routes/private.php:76
  * @route '/shared-lists'
  */
     const sharedListsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2034,7 +2034,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:75
+ * @see routes/private.php:76
  * @route '/shared-lists'
  */
         sharedListsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2042,7 +2042,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:75
+ * @see routes/private.php:76
  * @route '/shared-lists'
  */
         sharedListsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2057,7 +2057,8 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     sharedLists.form = sharedListsForm
 /**
- * @see routes/private.php:79
+* @see \App\Http\Controllers\ShoppingListController::shoppingList
+ * @see app/Http/Controllers/ShoppingListController.php:37
  * @route '/shopping-list'
  */
 export const shoppingList = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -2071,7 +2072,8 @@ shoppingList.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:79
+* @see \App\Http\Controllers\ShoppingListController::shoppingList
+ * @see app/Http/Controllers/ShoppingListController.php:37
  * @route '/shopping-list'
  */
 shoppingList.url = (options?: RouteQueryOptions) => {
@@ -2079,7 +2081,8 @@ shoppingList.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:79
+* @see \App\Http\Controllers\ShoppingListController::shoppingList
+ * @see app/Http/Controllers/ShoppingListController.php:37
  * @route '/shopping-list'
  */
 shoppingList.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -2087,7 +2090,8 @@ shoppingList.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:79
+* @see \App\Http\Controllers\ShoppingListController::shoppingList
+ * @see app/Http/Controllers/ShoppingListController.php:37
  * @route '/shopping-list'
  */
 shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -2096,7 +2100,8 @@ shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:79
+* @see \App\Http\Controllers\ShoppingListController::shoppingList
+ * @see app/Http/Controllers/ShoppingListController.php:37
  * @route '/shopping-list'
  */
     const shoppingListForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2105,7 +2110,8 @@ shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:79
+* @see \App\Http\Controllers\ShoppingListController::shoppingList
+ * @see app/Http/Controllers/ShoppingListController.php:37
  * @route '/shopping-list'
  */
         shoppingListForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2113,7 +2119,8 @@ shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:79
+* @see \App\Http\Controllers\ShoppingListController::shoppingList
+ * @see app/Http/Controllers/ShoppingListController.php:37
  * @route '/shopping-list'
  */
         shoppingListForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2127,3 +2134,82 @@ shoppingList.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
     
     shoppingList.form = shoppingListForm
+/**
+* @see \App\Http\Controllers\ShoppingListController::shoppingListMarkBought
+ * @see app/Http/Controllers/ShoppingListController.php:14
+ * @route '/shopping-list/{item}/bought'
+ */
+export const shoppingListMarkBought = (args: { item: number | { id: number } } | [item: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: shoppingListMarkBought.url(args, options),
+    method: 'post',
+})
+
+shoppingListMarkBought.definition = {
+    methods: ["post"],
+    url: '/shopping-list/{item}/bought',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\ShoppingListController::shoppingListMarkBought
+ * @see app/Http/Controllers/ShoppingListController.php:14
+ * @route '/shopping-list/{item}/bought'
+ */
+shoppingListMarkBought.url = (args: { item: number | { id: number } } | [item: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
+    if (typeof args === 'string' || typeof args === 'number') {
+        args = { item: args }
+    }
+
+            if (typeof args === 'object' && !Array.isArray(args) && 'id' in args) {
+            args = { item: args.id }
+        }
+    
+    if (Array.isArray(args)) {
+        args = {
+                    item: args[0],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        item: typeof args.item === 'object'
+                ? args.item.id
+                : args.item,
+                }
+
+    return shoppingListMarkBought.definition.url
+            .replace('{item}', parsedArgs.item.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\ShoppingListController::shoppingListMarkBought
+ * @see app/Http/Controllers/ShoppingListController.php:14
+ * @route '/shopping-list/{item}/bought'
+ */
+shoppingListMarkBought.post = (args: { item: number | { id: number } } | [item: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: shoppingListMarkBought.url(args, options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\ShoppingListController::shoppingListMarkBought
+ * @see app/Http/Controllers/ShoppingListController.php:14
+ * @route '/shopping-list/{item}/bought'
+ */
+    const shoppingListMarkBoughtForm = (args: { item: number | { id: number } } | [item: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: shoppingListMarkBought.url(args, options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\ShoppingListController::shoppingListMarkBought
+ * @see app/Http/Controllers/ShoppingListController.php:14
+ * @route '/shopping-list/{item}/bought'
+ */
+        shoppingListMarkBoughtForm.post = (args: { item: number | { id: number } } | [item: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: shoppingListMarkBought.url(args, options),
+            method: 'post',
+        })
+    
+    shoppingListMarkBought.form = shoppingListMarkBoughtForm

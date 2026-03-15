@@ -39,3 +39,21 @@ export type PaginatedListItems = {
     data: ListItem[]
     links: PaginationLink[]
 }
+
+export type ShoppingList = {
+    id: number
+    name: string
+    description: string
+    items: ShoppingListItem[]
+}
+
+export type ShoppingListItem = {
+    item: ListItem
+    bought: boolean
+    offers: ListItemOffer[]
+}
+
+export type ListItemOffer = {
+    name: string
+    message: string
+}

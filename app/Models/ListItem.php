@@ -47,7 +47,7 @@ class ListItem extends Model
     public function contacts(): BelongsToMany
     {
         return $this->belongsToMany(Contact::class)
-            ->withPivot('type', 'message');
+            ->withPivot('type', 'message', 'bought');
     }
 
     public function offers(): BelongsToMany

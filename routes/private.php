@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\ListItemController;
 use App\Http\Controllers\LookUpController;
+use App\Http\Controllers\ShoppingListController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -76,6 +77,9 @@ Route::get('shared-lists', function () {
     return Inertia::render('shared-lists');
 })->middleware(['auth', 'verified'])->name('shared-lists');
 
-Route::get('shopping-list', function () {
-    return Inertia::render('shopping-list');
-})->middleware(['auth', 'verified'])->name('shopping-list');
+Route::get('shopping-list', [ShoppingListController::class, 'show'])
+    ->middleware(['auth', 'verified'])
+    ->name('shopping-list');
+
+Route::post('/shopping-list/{item}/bought', [ShoppingListController::class, 'markAsBought'])
+    ->name('shopping-list-mark-bought');

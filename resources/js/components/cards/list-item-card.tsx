@@ -3,12 +3,12 @@ import { listItemEdit } from '@/routes';
 import type { ListItem } from '@/types';
 import { Pointer, Trash2 } from 'lucide-react';
 
-interface ListCardProps {
+interface ListItemCardProps {
     listItem: ListItem,
     onDeleteClick: (item: ListItem) => void
 }
 
-export default function ListItemCard({ listItem, onDeleteClick }: ListCardProps) {
+export default function ListItemCard({ listItem, onDeleteClick }: ListItemCardProps) {
     return (
         <div className="flex w-full my-2 border border-gray-500 rounded-lg shadow-lg p-4 cursor-pointer bg-white items-center">
             <Link href={listItemEdit({ list: listItem.wish_list_id, item: listItem.id })} title={`Edit ${listItem.name}`} className="grow flex hover:bg-gray-100 items-center">
