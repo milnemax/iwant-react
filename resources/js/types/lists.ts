@@ -1,3 +1,5 @@
+import {ListContact} from "@/types/contacts";
+
 export type List = {
     id: number
     name: string
@@ -56,4 +58,18 @@ export type ShoppingListItem = {
 export type ListItemOffer = {
     name: string
     message: string
+}
+
+export type SharedList = {
+    id: number
+    name: string
+    owner: string
+    due_date: string
+    list_type: ListType
+    contacts: ListContact[]
+}
+
+export type PaginatedSharedLists = {
+    data: SharedList[]
+    links: PaginationLink[]
 }

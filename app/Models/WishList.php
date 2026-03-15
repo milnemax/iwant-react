@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -27,6 +28,14 @@ class WishList extends Model
         ];
     }
 
+    protected $appends = [
+        'owner'
+    ];
+
+    protected $with = [
+        'user'
+    ];
+
     public function listType(): BelongsTo
     {
         return $this->belongsTo(ListType::class);
@@ -46,5 +55,12 @@ class WishList extends Model
     {
         return $this->belongsToMany(Contact::class)
             ->withPivot('code');
+    }
+
+    protected function owner(): Attribute
+    {
+        return Attribute::make(
+            get: function (): string { return $this->user->name ?? 'n/a'; },
+        );
     }
 }

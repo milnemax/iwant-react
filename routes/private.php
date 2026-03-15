@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\ListItemController;
 use App\Http\Controllers\LookUpController;
+use App\Http\Controllers\SharedListController;
 use App\Http\Controllers\ShoppingListController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -69,13 +70,16 @@ Route::delete('lists/{list}/items/{item}', [ListItemController::class, 'destroy'
     ->middleware(['auth', 'verified'])
     ->name('list-item-destroy');
 
+
 Route::get('look-up/search', [LookUpController::class, 'search'])
     ->middleware(['auth', 'verified'])
     ->name('look-up-search');
 
-Route::get('shared-lists', function () {
-    return Inertia::render('shared-lists');
-})->middleware(['auth', 'verified'])->name('shared-lists');
+
+Route::get('shared-lists', [SharedListController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('shared-lists');
+
 
 Route::get('shopping-list', [ShoppingListController::class, 'show'])
     ->middleware(['auth', 'verified'])

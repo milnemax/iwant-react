@@ -2,6 +2,7 @@ export type Contact = {
     id: number
     name: string
     email: string
+    userId?: number
     unsubscribed: boolean
 }
 
@@ -10,6 +11,9 @@ export type ListContact = {
     name: string
     shared: boolean
     listLabel: string
+    pivot: {
+        code: string
+    }
 }
 
 export type PaginationLink = {

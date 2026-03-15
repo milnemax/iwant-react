@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\ListController;
+use App\Http\Controllers\SharedListController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -26,10 +26,10 @@ Route::get('unsubscribe', function () {
     return Inertia::render('unsubscribe');
 })->name('unsubscribe');
 
-Route::get('/shared-list/{list}/{code}', [ListController::class, 'sharedList'])
+Route::get('/shared-list/{list}/{code}', [SharedListController::class, 'sharedList'])
     ->name('shared-list');
 
-Route::post('shared-list', [ListController::class, 'sharedListFromCode'])
+Route::post('shared-list', [SharedListController::class, 'sharedListFromCode'])
     ->name('verify-shared-list-form');
 
 #endregion
