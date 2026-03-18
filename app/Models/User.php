@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Mail\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -54,6 +55,15 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    protected $appends = [
+        'is_admin'
+    ];
+
+    protected $with = [
+        'roles'
+    ];
+
+
     public function emailPreferences(): BelongsToMany
     {
         return $this->belongsToMany(EmailPreference::class);
@@ -79,9 +89,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(WishList::class);
     }
 
-    public function isAdmin(): bool
+    protected function isAdmin(): Attribute
     {
-        return $this->roles()->where('id', Role::ADMIN)->exists();
+        return Attribute::make(
+            get: fn (): bool => $this->roles()->where('id', Role::ADMIN)->exists(),
+        );
     }
 
     public function sendEmailVerificationNotification(): void

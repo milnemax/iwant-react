@@ -1,6 +1,6 @@
 export type User = {
     id: number;
-    admin: bool;
+    is_admin: bool;
     name: string;
     email: string;
     avatar?: string;

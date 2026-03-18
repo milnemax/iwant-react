@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Loader2Icon } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 type SubmitBtnProps = React.ComponentProps<"button"> & {
     processing?: boolean;
@@ -16,7 +17,7 @@ function SubmitBtn({
         <button
             type="submit"
             disabled={processing || props.disabled}
-            className="text-white border border-gray-700 bg-gray-700 py-2 px-3 rounded hover:text-gray-300 hover:bg-gray-600 cursor-pointer flex items-center"
+            className={cn("text-white border border-gray-700 bg-gray-700 py-2 px-3 rounded hover:text-gray-300 hover:bg-gray-600 cursor-pointer flex items-center", className)}
         >
             {processing && (
                 <Loader2Icon

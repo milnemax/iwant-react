@@ -74,18 +74,18 @@ export default function AppHeader() {
                                 <Link
                                     key={item.title}
                                     href={item.href}
-                                    className="text-white hover:text-gray-300"
+                                    className="text-white hover:text-gray-300 cursor-pointer"
                                 >
                                     {item.title}
                                 </Link>
                             ))}
-                            {auth.admin && (
+                            {auth.user.is_admin && (
                                 <>
                                     {adminNavItems.map((item) => (
                                         <Link
                                             key={item.title}
                                             href={item.href}
-                                            className="text-white hover:text-gray-300"
+                                            className="text-white hover:text-gray-300 cursor-pointer"
                                         >
                                             {item.title}
                                         </Link>
@@ -99,7 +99,7 @@ export default function AppHeader() {
                                 <Link
                                     key={item.title}
                                     href={item.href}
-                                    className="text-white hover:text-gray-300"
+                                    className="text-white hover:text-gray-300 cursor-pointer"
                                 >
                                     {item.title}
                                 </Link>
@@ -129,11 +129,24 @@ export default function AppHeader() {
                                 <Link
                                     key={item.title}
                                     href={item.href}
-                                    className="text-[#336b87] p-4 w-full hover:bg-gray-300"
+                                    className="text-[#336b87] p-4 w-full hover:bg-gray-300 cursor-pointer"
                                 >
                                     {item.title}
                                 </Link>
                             ))}
+                            {auth.user.is_admin && (
+                                <>
+                                    {adminNavItems.map((item) => (
+                                        <Link
+                                            key={item.title}
+                                            href={item.href}
+                                            className="text-[#336b87] p-4 w-full hover:bg-gray-300 cursor-pointer"
+                                        >
+                                            {item.title}
+                                        </Link>
+                                    ))}
+                                </>
+                            )}
                         </>
                     ) : (
                         <>
@@ -141,7 +154,7 @@ export default function AppHeader() {
                                 <Link
                                     key={item.title}
                                     href={item.href}
-                                    className="text-[#336b87] p-4 w-full hover:bg-gray-300"
+                                    className="text-[#336b87] p-4 w-full hover:bg-gray-300 cursor-pointer"
                                 >
                                     {item.title}
                                 </Link>

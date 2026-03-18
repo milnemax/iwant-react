@@ -5,8 +5,6 @@ use App\Http\Controllers\SharedListController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-#region "Public"
-
 Route::get('/', function () {
     return Inertia::render('home');
 })->name('home');
@@ -32,15 +30,6 @@ Route::get('/shared-list/{list}/{code}', [SharedListController::class, 'sharedLi
 Route::post('shared-list', [SharedListController::class, 'sharedListFromCode'])
     ->name('verify-shared-list-form');
 
-#endregion
-
-#region "Admin"
-
-Route::get('admin', function () {
-    return Inertia::render('admin');
-})->middleware(['auth', 'administrator'])->name('admin');
-
-#endregion
-
+require __DIR__.'/admin.php';
 require __DIR__.'/private.php';
 require __DIR__.'/settings.php';
