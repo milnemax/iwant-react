@@ -17,7 +17,7 @@ function SubmitBtn({
         <button
             type="submit"
             disabled={processing || props.disabled}
-            className={cn("text-white border border-gray-700 bg-gray-700 py-2 px-3 rounded hover:text-gray-300 hover:bg-gray-600 cursor-pointer flex items-center", className)}
+            className={cn("bg-[#336b87] text-white hover:text-gray-300 hover:bg-[#21526b] py-2 px-3 rounded cursor-pointer flex items-center", className)}
         >
             {processing && (
                 <Loader2Icon

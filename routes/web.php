@@ -27,6 +27,12 @@ Route::get('unsubscribe', function () {
 Route::get('/shared-list/{list}/{code}', [SharedListController::class, 'sharedList'])
     ->name('shared-list');
 
+Route::post('/shared-list/{list}/{code}/claim', [SharedListController::class, 'claim'])
+    ->name('shared-list-claim');
+
+Route::post('/shared-list/{list}/{code}/offer', [SharedListController::class, 'offer'])
+    ->name('shared-list-offer');
+
 Route::post('shared-list', [SharedListController::class, 'sharedListFromCode'])
     ->name('verify-shared-list-form');
 

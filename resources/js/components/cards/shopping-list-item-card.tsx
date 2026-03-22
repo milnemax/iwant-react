@@ -8,7 +8,7 @@ interface ShoppingListItemCardProps {
 
 export default function ShoppingListItemCard({ shoppingListItem, onFlagAsBoughtClick }: ShoppingListItemCardProps) {
     return (
-        <div key={`item_${shoppingListItem.listItem.id}`} className="flex my-2 border border-gray-500 rounded-lg shadow-lg p-2 bg-white">
+        <div key={`item_${shoppingListItem.listItem.id}`} className="flex my-2 border border-gray-500 rounded-lg shadow-lg p-2 bg-white items-start">
             <div className="grow">
                 <p>{shoppingListItem.listItem.list_item_category.name} - {shoppingListItem.listItem.name}</p>
                 {shoppingListItem.listItem.url && (
@@ -17,8 +17,24 @@ export default function ShoppingListItemCard({ shoppingListItem, onFlagAsBoughtC
                     </p>
                 )}
                 <p className="text-gray-500 text-sm">{shoppingListItem.listItem.description}</p>
-                {shoppingListItem.bought && (
+                {shoppingListItem.bought ? (
                     <p className="text-green-500 text-sm">( bought )</p>
+                ) : (
+                    shoppingListItem.offers.length > 0 && (
+                        <>
+                            <h2 className="my-2">Item Under Offer</h2>
+                            <hr className="text-gray-500 mx-2"/>
+
+                            {shoppingListItem.offers.map((offer, index) => (
+                                <div key={index}>
+                                    <p className="mx-3 text-sm">{offer.name}</p>
+                                    <p className="mx-3 mb-1 text-xs text-gray-500">{offer.message}</p>
+                                </div>
+                            ))}
+
+                            <hr className="text-gray-500 mx-2 mb-2"/>
+                        </>
+                    )
                 )}
             </div>
             {!shoppingListItem.bought && (

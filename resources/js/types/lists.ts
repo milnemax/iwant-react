@@ -1,5 +1,24 @@
 import {ListContact} from "@/types/contacts";
+import {PaginationLink} from "@/types/index";
 
+// All Lists
+export type ListType = {
+    id: number
+    name: string
+}
+
+export type ListItemCategory = {
+    id: number
+    name: string
+}
+
+export type ListItemOffer = {
+    name: string
+    message: string
+}
+
+
+// Users List
 export type List = {
     id: number
     name: string
@@ -7,21 +26,11 @@ export type List = {
     list_type: ListType
 }
 
-export type ListType = {
-    id: number
-    name: string
-}
-
-export type PaginationLink = {
-    url: string | null
-    label: string
-    active: boolean
-}
-
 export type PaginatedLists = {
     data: List[]
     links: PaginationLink[]
 }
+
 
 export type ListItem = {
     id: number
@@ -32,16 +41,13 @@ export type ListItem = {
     list_item_category: ListItemCategory
 }
 
-export type ListItemCategory = {
-    id: number
-    name: string
-}
-
 export type PaginatedListItems = {
     data: ListItem[]
     links: PaginationLink[]
 }
 
+
+// Users Shopping List
 export type ShoppingList = {
     id: number
     name: string
@@ -50,16 +56,13 @@ export type ShoppingList = {
 }
 
 export type ShoppingListItem = {
-    item: ListItem
+    listItem: ListItem
     bought: boolean
     offers: ListItemOffer[]
 }
 
-export type ListItemOffer = {
-    name: string
-    message: string
-}
 
+// Shared Lists
 export type SharedList = {
     id: number
     name: string
@@ -72,4 +75,12 @@ export type SharedList = {
 export type PaginatedSharedLists = {
     data: SharedList[]
     links: PaginationLink[]
+}
+
+
+export type SharedListItem = {
+    listItem: ListItem
+    claimedBy: number
+    offerByViewer: boolean
+    offers: ListItemOffer[]
 }

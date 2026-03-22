@@ -12,10 +12,10 @@ class ShareNotification extends Mailable
 {
     use Queueable, SerializesModels;
 
-public Contact $contact;
-public string $code;
-public string $unsubscribe;
-public WishList $list;
+    public Contact $contact;
+    public string $code;
+    public string $unsubscribe;
+    public WishList $list;
 
     /**
      * Create a new message instance.

@@ -551,7 +551,7 @@ unsubscribe.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     unsubscribe.form = unsubscribeForm
 /**
 * @see \App\Http\Controllers\SharedListController::sharedList
- * @see app/Http/Controllers/SharedListController.php:29
+ * @see app/Http/Controllers/SharedListController.php:35
  * @route '/shared-list/{list}/{code}'
  */
 export const sharedList = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -566,7 +566,7 @@ sharedList.definition = {
 
 /**
 * @see \App\Http\Controllers\SharedListController::sharedList
- * @see app/Http/Controllers/SharedListController.php:29
+ * @see app/Http/Controllers/SharedListController.php:35
  * @route '/shared-list/{list}/{code}'
  */
 sharedList.url = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions) => {
@@ -592,7 +592,7 @@ sharedList.url = (args: { list: string | number, code: string | number } | [list
 
 /**
 * @see \App\Http\Controllers\SharedListController::sharedList
- * @see app/Http/Controllers/SharedListController.php:29
+ * @see app/Http/Controllers/SharedListController.php:35
  * @route '/shared-list/{list}/{code}'
  */
 sharedList.get = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -601,7 +601,7 @@ sharedList.get = (args: { list: string | number, code: string | number } | [list
 })
 /**
 * @see \App\Http\Controllers\SharedListController::sharedList
- * @see app/Http/Controllers/SharedListController.php:29
+ * @see app/Http/Controllers/SharedListController.php:35
  * @route '/shared-list/{list}/{code}'
  */
 sharedList.head = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -611,7 +611,7 @@ sharedList.head = (args: { list: string | number, code: string | number } | [lis
 
     /**
 * @see \App\Http\Controllers\SharedListController::sharedList
- * @see app/Http/Controllers/SharedListController.php:29
+ * @see app/Http/Controllers/SharedListController.php:35
  * @route '/shared-list/{list}/{code}'
  */
     const sharedListForm = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -621,7 +621,7 @@ sharedList.head = (args: { list: string | number, code: string | number } | [lis
 
             /**
 * @see \App\Http\Controllers\SharedListController::sharedList
- * @see app/Http/Controllers/SharedListController.php:29
+ * @see app/Http/Controllers/SharedListController.php:35
  * @route '/shared-list/{list}/{code}'
  */
         sharedListForm.get = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -630,7 +630,7 @@ sharedList.head = (args: { list: string | number, code: string | number } | [lis
         })
             /**
 * @see \App\Http\Controllers\SharedListController::sharedList
- * @see app/Http/Controllers/SharedListController.php:29
+ * @see app/Http/Controllers/SharedListController.php:35
  * @route '/shared-list/{list}/{code}'
  */
         sharedListForm.head = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -645,8 +645,152 @@ sharedList.head = (args: { list: string | number, code: string | number } | [lis
     
     sharedList.form = sharedListForm
 /**
+* @see \App\Http\Controllers\SharedListController::sharedListClaim
+ * @see app/Http/Controllers/SharedListController.php:95
+ * @route '/shared-list/{list}/{code}/claim'
+ */
+export const sharedListClaim = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: sharedListClaim.url(args, options),
+    method: 'post',
+})
+
+sharedListClaim.definition = {
+    methods: ["post"],
+    url: '/shared-list/{list}/{code}/claim',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\SharedListController::sharedListClaim
+ * @see app/Http/Controllers/SharedListController.php:95
+ * @route '/shared-list/{list}/{code}/claim'
+ */
+sharedListClaim.url = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+                    list: args[0],
+                    code: args[1],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        list: args.list,
+                                code: args.code,
+                }
+
+    return sharedListClaim.definition.url
+            .replace('{list}', parsedArgs.list.toString())
+            .replace('{code}', parsedArgs.code.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\SharedListController::sharedListClaim
+ * @see app/Http/Controllers/SharedListController.php:95
+ * @route '/shared-list/{list}/{code}/claim'
+ */
+sharedListClaim.post = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: sharedListClaim.url(args, options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\SharedListController::sharedListClaim
+ * @see app/Http/Controllers/SharedListController.php:95
+ * @route '/shared-list/{list}/{code}/claim'
+ */
+    const sharedListClaimForm = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: sharedListClaim.url(args, options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\SharedListController::sharedListClaim
+ * @see app/Http/Controllers/SharedListController.php:95
+ * @route '/shared-list/{list}/{code}/claim'
+ */
+        sharedListClaimForm.post = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: sharedListClaim.url(args, options),
+            method: 'post',
+        })
+    
+    sharedListClaim.form = sharedListClaimForm
+/**
+* @see \App\Http\Controllers\SharedListController::sharedListOffer
+ * @see app/Http/Controllers/SharedListController.php:122
+ * @route '/shared-list/{list}/{code}/offer'
+ */
+export const sharedListOffer = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: sharedListOffer.url(args, options),
+    method: 'post',
+})
+
+sharedListOffer.definition = {
+    methods: ["post"],
+    url: '/shared-list/{list}/{code}/offer',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\SharedListController::sharedListOffer
+ * @see app/Http/Controllers/SharedListController.php:122
+ * @route '/shared-list/{list}/{code}/offer'
+ */
+sharedListOffer.url = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+                    list: args[0],
+                    code: args[1],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        list: args.list,
+                                code: args.code,
+                }
+
+    return sharedListOffer.definition.url
+            .replace('{list}', parsedArgs.list.toString())
+            .replace('{code}', parsedArgs.code.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\SharedListController::sharedListOffer
+ * @see app/Http/Controllers/SharedListController.php:122
+ * @route '/shared-list/{list}/{code}/offer'
+ */
+sharedListOffer.post = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: sharedListOffer.url(args, options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\SharedListController::sharedListOffer
+ * @see app/Http/Controllers/SharedListController.php:122
+ * @route '/shared-list/{list}/{code}/offer'
+ */
+    const sharedListOfferForm = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: sharedListOffer.url(args, options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\SharedListController::sharedListOffer
+ * @see app/Http/Controllers/SharedListController.php:122
+ * @route '/shared-list/{list}/{code}/offer'
+ */
+        sharedListOfferForm.post = (args: { list: string | number, code: string | number } | [list: string | number, code: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: sharedListOffer.url(args, options),
+            method: 'post',
+        })
+    
+    sharedListOffer.form = sharedListOfferForm
+/**
 * @see \App\Http\Controllers\SharedListController::verifySharedListForm
- * @see app/Http/Controllers/SharedListController.php:49
+ * @see app/Http/Controllers/SharedListController.php:80
  * @route '/shared-list'
  */
 export const verifySharedListForm = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -661,7 +805,7 @@ verifySharedListForm.definition = {
 
 /**
 * @see \App\Http\Controllers\SharedListController::verifySharedListForm
- * @see app/Http/Controllers/SharedListController.php:49
+ * @see app/Http/Controllers/SharedListController.php:80
  * @route '/shared-list'
  */
 verifySharedListForm.url = (options?: RouteQueryOptions) => {
@@ -670,7 +814,7 @@ verifySharedListForm.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\SharedListController::verifySharedListForm
- * @see app/Http/Controllers/SharedListController.php:49
+ * @see app/Http/Controllers/SharedListController.php:80
  * @route '/shared-list'
  */
 verifySharedListForm.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -680,7 +824,7 @@ verifySharedListForm.post = (options?: RouteQueryOptions): RouteDefinition<'post
 
     /**
 * @see \App\Http\Controllers\SharedListController::verifySharedListForm
- * @see app/Http/Controllers/SharedListController.php:49
+ * @see app/Http/Controllers/SharedListController.php:80
  * @route '/shared-list'
  */
     const verifySharedListFormForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -690,7 +834,7 @@ verifySharedListForm.post = (options?: RouteQueryOptions): RouteDefinition<'post
 
             /**
 * @see \App\Http\Controllers\SharedListController::verifySharedListForm
- * @see app/Http/Controllers/SharedListController.php:49
+ * @see app/Http/Controllers/SharedListController.php:80
  * @route '/shared-list'
  */
         verifySharedListFormForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2072,7 +2216,7 @@ lookUpSearch.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     lookUpSearch.form = lookUpSearchForm
 /**
 * @see \App\Http\Controllers\SharedListController::sharedLists
- * @see app/Http/Controllers/SharedListController.php:15
+ * @see app/Http/Controllers/SharedListController.php:21
  * @route '/shared-lists'
  */
 export const sharedLists = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -2087,7 +2231,7 @@ sharedLists.definition = {
 
 /**
 * @see \App\Http\Controllers\SharedListController::sharedLists
- * @see app/Http/Controllers/SharedListController.php:15
+ * @see app/Http/Controllers/SharedListController.php:21
  * @route '/shared-lists'
  */
 sharedLists.url = (options?: RouteQueryOptions) => {
@@ -2096,7 +2240,7 @@ sharedLists.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\SharedListController::sharedLists
- * @see app/Http/Controllers/SharedListController.php:15
+ * @see app/Http/Controllers/SharedListController.php:21
  * @route '/shared-lists'
  */
 sharedLists.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -2105,7 +2249,7 @@ sharedLists.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\SharedListController::sharedLists
- * @see app/Http/Controllers/SharedListController.php:15
+ * @see app/Http/Controllers/SharedListController.php:21
  * @route '/shared-lists'
  */
 sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -2115,7 +2259,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\SharedListController::sharedLists
- * @see app/Http/Controllers/SharedListController.php:15
+ * @see app/Http/Controllers/SharedListController.php:21
  * @route '/shared-lists'
  */
     const sharedListsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2125,7 +2269,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\SharedListController::sharedLists
- * @see app/Http/Controllers/SharedListController.php:15
+ * @see app/Http/Controllers/SharedListController.php:21
  * @route '/shared-lists'
  */
         sharedListsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -2134,7 +2278,7 @@ sharedLists.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\SharedListController::sharedLists
- * @see app/Http/Controllers/SharedListController.php:15
+ * @see app/Http/Controllers/SharedListController.php:21
  * @route '/shared-lists'
  */
         sharedListsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

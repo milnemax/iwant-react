@@ -23,3 +23,9 @@ export interface DashboardProps extends SharedData {
     shoppingItemsCount: number;
     toBuyItemsCount: number;
 };
+
+export type PaginationLink = {
+    url: string | null
+    label: string
+    active: boolean
+}

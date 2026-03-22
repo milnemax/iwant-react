@@ -1,3 +1,5 @@
+import {PaginationLink} from "@/types/index";
+
 export type Contact = {
     id: number
     name: string
@@ -14,12 +16,6 @@ export type ListContact = {
     pivot: {
         code: string
     }
-}
-
-export type PaginationLink = {
-    url: string | null
-    label: string
-    active: boolean
 }
 
 export type PaginatedContacts = {
