@@ -1,7 +1,7 @@
 import ContactUsController from './ContactUsController'
+import ContactController from './ContactController'
 import SharedListController from './SharedListController'
 import AdminController from './AdminController'
-import ContactController from './ContactController'
 import DashboardController from './DashboardController'
 import ListController from './ListController'
 import ListItemController from './ListItemController'
@@ -10,9 +10,9 @@ import ShoppingListController from './ShoppingListController'
 import Settings from './Settings'
 const Controllers = {
     ContactUsController: Object.assign(ContactUsController, ContactUsController),
+ContactController: Object.assign(ContactController, ContactController),
 SharedListController: Object.assign(SharedListController, SharedListController),
 AdminController: Object.assign(AdminController, AdminController),
-ContactController: Object.assign(ContactController, ContactController),
 DashboardController: Object.assign(DashboardController, DashboardController),
 ListController: Object.assign(ListController, ListController),
 ListItemController: Object.assign(ListItemController, ListItemController),
