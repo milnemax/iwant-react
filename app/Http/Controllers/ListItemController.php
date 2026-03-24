@@ -36,9 +36,11 @@ class ListItemController extends Controller
             return redirect('/lists');
         }
 
+        $item->load('listItemCategory');
+
         return Inertia::render('private/list-item', [
             'list' => $list,
-            'item' => $item,
+            'listItem' => $item,
         ]);
     }
 
@@ -68,5 +70,32 @@ class ListItemController extends Controller
         ]);
 
         return redirect("/lists/{$list->id}")->with('success', "Item {$item->name} created.");
+    }
+
+    public function update(Request $request, WishList $list, ListItem $item): RedirectResponse
+    {
+        $user = Auth::user();
+
+        if ($item->wishList->user_id !== $user->id) {
+            return redirect('/lists');
+        }
+
+        $valid = $request->validate([
+            'item_name' => 'required|string',
+            'item_category' => 'required|string',
+            'item_url' => 'nullable|url',
+            'item_description' => 'required|string'
+        ]);
+
+        $category = ListItemCategory::firstOrCreate([ 'name' => $valid['item_category'] ]);
+
+        $item->update([
+            'list_item_category_id' => $category->id,
+            'name' => $valid['item_name'],
+            'url' => $valid['item_url'] ?? null,
+            'description' => $valid['item_description'] ?? null
+        ]);
+
+        return redirect("/lists/{$list->id}")->with('success', "Item {$item->name} updated.");
     }
 }

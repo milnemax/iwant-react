@@ -45,7 +45,7 @@ function LookUpField({
     }, [fieldValue]);
 
     const searchForSuggestions = async (term: string) => {
-        if (term.length < 2) {
+        if (term.length < 2 || term === (defaultValue ?? '')) {
             clearSuggestions();
             return;
         }

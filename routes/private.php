@@ -66,6 +66,10 @@ Route::get('lists/{list}/items/{item}/edit', [ListItemController::class, 'edit']
     ->middleware(['auth', 'verified'])
     ->name('list-item-edit');
 
+Route::put('lists/{list}/items/{item}', [ListItemController::class, 'update'])
+    ->middleware(['auth', 'verified'])
+    ->name('list-item-update');
+
 Route::delete('lists/{list}/items/{item}', [ListItemController::class, 'destroy'])
     ->middleware(['auth', 'verified'])
     ->name('list-item-destroy');

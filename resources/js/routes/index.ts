@@ -1874,7 +1874,7 @@ listDestroy.delete = (args: { list: number | { id: number } } | [list: number | 
     listDestroy.form = listDestroyForm
 /**
 * @see \App\Http\Controllers\ListItemController::listItemsStore
- * @see app/Http/Controllers/ListItemController.php:45
+ * @see app/Http/Controllers/ListItemController.php:47
  * @route '/lists/{list}/items'
  */
 export const listItemsStore = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -1889,7 +1889,7 @@ listItemsStore.definition = {
 
 /**
 * @see \App\Http\Controllers\ListItemController::listItemsStore
- * @see app/Http/Controllers/ListItemController.php:45
+ * @see app/Http/Controllers/ListItemController.php:47
  * @route '/lists/{list}/items'
  */
 listItemsStore.url = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -1922,7 +1922,7 @@ listItemsStore.url = (args: { list: number | { id: number } } | [list: number | 
 
 /**
 * @see \App\Http\Controllers\ListItemController::listItemsStore
- * @see app/Http/Controllers/ListItemController.php:45
+ * @see app/Http/Controllers/ListItemController.php:47
  * @route '/lists/{list}/items'
  */
 listItemsStore.post = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -1932,7 +1932,7 @@ listItemsStore.post = (args: { list: number | { id: number } } | [list: number |
 
     /**
 * @see \App\Http\Controllers\ListItemController::listItemsStore
- * @see app/Http/Controllers/ListItemController.php:45
+ * @see app/Http/Controllers/ListItemController.php:47
  * @route '/lists/{list}/items'
  */
     const listItemsStoreForm = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -1942,7 +1942,7 @@ listItemsStore.post = (args: { list: number | { id: number } } | [list: number |
 
             /**
 * @see \App\Http\Controllers\ListItemController::listItemsStore
- * @see app/Http/Controllers/ListItemController.php:45
+ * @see app/Http/Controllers/ListItemController.php:47
  * @route '/lists/{list}/items'
  */
         listItemsStoreForm.post = (args: { list: number | { id: number } } | [list: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -2050,6 +2050,92 @@ listItemEdit.head = (args: { list: number | { id: number }, item: number | { id:
         })
     
     listItemEdit.form = listItemEditForm
+/**
+* @see \App\Http\Controllers\ListItemController::listItemUpdate
+ * @see app/Http/Controllers/ListItemController.php:75
+ * @route '/lists/{list}/items/{item}'
+ */
+export const listItemUpdate = (args: { list: number | { id: number }, item: number | { id: number } } | [list: number | { id: number }, item: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: listItemUpdate.url(args, options),
+    method: 'put',
+})
+
+listItemUpdate.definition = {
+    methods: ["put"],
+    url: '/lists/{list}/items/{item}',
+} satisfies RouteDefinition<["put"]>
+
+/**
+* @see \App\Http\Controllers\ListItemController::listItemUpdate
+ * @see app/Http/Controllers/ListItemController.php:75
+ * @route '/lists/{list}/items/{item}'
+ */
+listItemUpdate.url = (args: { list: number | { id: number }, item: number | { id: number } } | [list: number | { id: number }, item: number | { id: number } ], options?: RouteQueryOptions) => {
+    if (Array.isArray(args)) {
+        args = {
+                    list: args[0],
+                    item: args[1],
+                }
+    }
+
+    args = applyUrlDefaults(args)
+
+    const parsedArgs = {
+                        list: typeof args.list === 'object'
+                ? args.list.id
+                : args.list,
+                                item: typeof args.item === 'object'
+                ? args.item.id
+                : args.item,
+                }
+
+    return listItemUpdate.definition.url
+            .replace('{list}', parsedArgs.list.toString())
+            .replace('{item}', parsedArgs.item.toString())
+            .replace(/\/+$/, '') + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\ListItemController::listItemUpdate
+ * @see app/Http/Controllers/ListItemController.php:75
+ * @route '/lists/{list}/items/{item}'
+ */
+listItemUpdate.put = (args: { list: number | { id: number }, item: number | { id: number } } | [list: number | { id: number }, item: number | { id: number } ], options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: listItemUpdate.url(args, options),
+    method: 'put',
+})
+
+    /**
+* @see \App\Http\Controllers\ListItemController::listItemUpdate
+ * @see app/Http/Controllers/ListItemController.php:75
+ * @route '/lists/{list}/items/{item}'
+ */
+    const listItemUpdateForm = (args: { list: number | { id: number }, item: number | { id: number } } | [list: number | { id: number }, item: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: listItemUpdate.url(args, {
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PUT',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\ListItemController::listItemUpdate
+ * @see app/Http/Controllers/ListItemController.php:75
+ * @route '/lists/{list}/items/{item}'
+ */
+        listItemUpdateForm.put = (args: { list: number | { id: number }, item: number | { id: number } } | [list: number | { id: number }, item: number | { id: number } ], options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: listItemUpdate.url(args, {
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    listItemUpdate.form = listItemUpdateForm
 /**
 * @see \App\Http\Controllers\ListItemController::listItemDestroy
  * @see app/Http/Controllers/ListItemController.php:16
