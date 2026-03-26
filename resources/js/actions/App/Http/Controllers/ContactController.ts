@@ -1,7 +1,62 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition, applyUrlDefaults } from './../../../../wayfinder'
 /**
+* @see \App\Http\Controllers\ContactController::requestData
+ * @see app/Http/Controllers/ContactController.php:50
+ * @route '/recipients'
+ */
+export const requestData = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: requestData.url(options),
+    method: 'post',
+})
+
+requestData.definition = {
+    methods: ["post"],
+    url: '/recipients',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\ContactController::requestData
+ * @see app/Http/Controllers/ContactController.php:50
+ * @route '/recipients'
+ */
+requestData.url = (options?: RouteQueryOptions) => {
+    return requestData.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\ContactController::requestData
+ * @see app/Http/Controllers/ContactController.php:50
+ * @route '/recipients'
+ */
+requestData.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: requestData.url(options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\ContactController::requestData
+ * @see app/Http/Controllers/ContactController.php:50
+ * @route '/recipients'
+ */
+    const requestDataForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: requestData.url(options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\ContactController::requestData
+ * @see app/Http/Controllers/ContactController.php:50
+ * @route '/recipients'
+ */
+        requestDataForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: requestData.url(options),
+            method: 'post',
+        })
+    
+    requestData.form = requestDataForm
+/**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaForm
- * @see app/Http/Controllers/ContactController.php:71
+ * @see app/Http/Controllers/ContactController.php:111
  * @route '/unsubscribe'
  */
 export const unsubscribeViaForm = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -16,7 +71,7 @@ unsubscribeViaForm.definition = {
 
 /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaForm
- * @see app/Http/Controllers/ContactController.php:71
+ * @see app/Http/Controllers/ContactController.php:111
  * @route '/unsubscribe'
  */
 unsubscribeViaForm.url = (options?: RouteQueryOptions) => {
@@ -25,7 +80,7 @@ unsubscribeViaForm.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaForm
- * @see app/Http/Controllers/ContactController.php:71
+ * @see app/Http/Controllers/ContactController.php:111
  * @route '/unsubscribe'
  */
 unsubscribeViaForm.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -35,7 +90,7 @@ unsubscribeViaForm.post = (options?: RouteQueryOptions): RouteDefinition<'post'>
 
     /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaForm
- * @see app/Http/Controllers/ContactController.php:71
+ * @see app/Http/Controllers/ContactController.php:111
  * @route '/unsubscribe'
  */
     const unsubscribeViaFormForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -45,7 +100,7 @@ unsubscribeViaForm.post = (options?: RouteQueryOptions): RouteDefinition<'post'>
 
             /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaForm
- * @see app/Http/Controllers/ContactController.php:71
+ * @see app/Http/Controllers/ContactController.php:111
  * @route '/unsubscribe'
  */
         unsubscribeViaFormForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -56,7 +111,7 @@ unsubscribeViaForm.post = (options?: RouteQueryOptions): RouteDefinition<'post'>
     unsubscribeViaForm.form = unsubscribeViaFormForm
 /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaLink
- * @see app/Http/Controllers/ContactController.php:88
+ * @see app/Http/Controllers/ContactController.php:128
  * @route '/unsubscribe/{contact}/{hash}'
  */
 export const unsubscribeViaLink = (args: { contact: number | { id: number }, hash: string | number } | [contact: number | { id: number }, hash: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -71,7 +126,7 @@ unsubscribeViaLink.definition = {
 
 /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaLink
- * @see app/Http/Controllers/ContactController.php:88
+ * @see app/Http/Controllers/ContactController.php:128
  * @route '/unsubscribe/{contact}/{hash}'
  */
 unsubscribeViaLink.url = (args: { contact: number | { id: number }, hash: string | number } | [contact: number | { id: number }, hash: string | number ], options?: RouteQueryOptions) => {
@@ -99,7 +154,7 @@ unsubscribeViaLink.url = (args: { contact: number | { id: number }, hash: string
 
 /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaLink
- * @see app/Http/Controllers/ContactController.php:88
+ * @see app/Http/Controllers/ContactController.php:128
  * @route '/unsubscribe/{contact}/{hash}'
  */
 unsubscribeViaLink.get = (args: { contact: number | { id: number }, hash: string | number } | [contact: number | { id: number }, hash: string | number ], options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -108,7 +163,7 @@ unsubscribeViaLink.get = (args: { contact: number | { id: number }, hash: string
 })
 /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaLink
- * @see app/Http/Controllers/ContactController.php:88
+ * @see app/Http/Controllers/ContactController.php:128
  * @route '/unsubscribe/{contact}/{hash}'
  */
 unsubscribeViaLink.head = (args: { contact: number | { id: number }, hash: string | number } | [contact: number | { id: number }, hash: string | number ], options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -118,7 +173,7 @@ unsubscribeViaLink.head = (args: { contact: number | { id: number }, hash: strin
 
     /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaLink
- * @see app/Http/Controllers/ContactController.php:88
+ * @see app/Http/Controllers/ContactController.php:128
  * @route '/unsubscribe/{contact}/{hash}'
  */
     const unsubscribeViaLinkForm = (args: { contact: number | { id: number }, hash: string | number } | [contact: number | { id: number }, hash: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -128,7 +183,7 @@ unsubscribeViaLink.head = (args: { contact: number | { id: number }, hash: strin
 
             /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaLink
- * @see app/Http/Controllers/ContactController.php:88
+ * @see app/Http/Controllers/ContactController.php:128
  * @route '/unsubscribe/{contact}/{hash}'
  */
         unsubscribeViaLinkForm.get = (args: { contact: number | { id: number }, hash: string | number } | [contact: number | { id: number }, hash: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -137,7 +192,7 @@ unsubscribeViaLink.head = (args: { contact: number | { id: number }, hash: strin
         })
             /**
 * @see \App\Http\Controllers\ContactController::unsubscribeViaLink
- * @see app/Http/Controllers/ContactController.php:88
+ * @see app/Http/Controllers/ContactController.php:128
  * @route '/unsubscribe/{contact}/{hash}'
  */
         unsubscribeViaLinkForm.head = (args: { contact: number | { id: number }, hash: string | number } | [contact: number | { id: number }, hash: string | number ], options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -153,7 +208,7 @@ unsubscribeViaLink.head = (args: { contact: number | { id: number }, hash: strin
     unsubscribeViaLink.form = unsubscribeViaLinkForm
 /**
 * @see \App\Http\Controllers\ContactController::index
- * @see app/Http/Controllers/ContactController.php:35
+ * @see app/Http/Controllers/ContactController.php:37
  * @route '/contacts'
  */
 export const index = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -168,7 +223,7 @@ index.definition = {
 
 /**
 * @see \App\Http\Controllers\ContactController::index
- * @see app/Http/Controllers/ContactController.php:35
+ * @see app/Http/Controllers/ContactController.php:37
  * @route '/contacts'
  */
 index.url = (options?: RouteQueryOptions) => {
@@ -177,7 +232,7 @@ index.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ContactController::index
- * @see app/Http/Controllers/ContactController.php:35
+ * @see app/Http/Controllers/ContactController.php:37
  * @route '/contacts'
  */
 index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -186,7 +241,7 @@ index.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\ContactController::index
- * @see app/Http/Controllers/ContactController.php:35
+ * @see app/Http/Controllers/ContactController.php:37
  * @route '/contacts'
  */
 index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -196,7 +251,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\ContactController::index
- * @see app/Http/Controllers/ContactController.php:35
+ * @see app/Http/Controllers/ContactController.php:37
  * @route '/contacts'
  */
     const indexForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -206,7 +261,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\ContactController::index
- * @see app/Http/Controllers/ContactController.php:35
+ * @see app/Http/Controllers/ContactController.php:37
  * @route '/contacts'
  */
         indexForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -215,7 +270,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\ContactController::index
- * @see app/Http/Controllers/ContactController.php:35
+ * @see app/Http/Controllers/ContactController.php:37
  * @route '/contacts'
  */
         indexForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -231,7 +286,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     index.form = indexForm
 /**
 * @see \App\Http\Controllers\ContactController::store
- * @see app/Http/Controllers/ContactController.php:48
+ * @see app/Http/Controllers/ContactController.php:88
  * @route '/contacts'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -246,7 +301,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\ContactController::store
- * @see app/Http/Controllers/ContactController.php:48
+ * @see app/Http/Controllers/ContactController.php:88
  * @route '/contacts'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -255,7 +310,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\ContactController::store
- * @see app/Http/Controllers/ContactController.php:48
+ * @see app/Http/Controllers/ContactController.php:88
  * @route '/contacts'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -265,7 +320,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\ContactController::store
- * @see app/Http/Controllers/ContactController.php:48
+ * @see app/Http/Controllers/ContactController.php:88
  * @route '/contacts'
  */
     const storeForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -275,7 +330,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\ContactController::store
- * @see app/Http/Controllers/ContactController.php:48
+ * @see app/Http/Controllers/ContactController.php:88
  * @route '/contacts'
  */
         storeForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -286,7 +341,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     store.form = storeForm
 /**
 * @see \App\Http\Controllers\ContactController::destroy
- * @see app/Http/Controllers/ContactController.php:18
+ * @see app/Http/Controllers/ContactController.php:20
  * @route '/contacts/{contact}'
  */
 export const destroy = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -301,7 +356,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\ContactController::destroy
- * @see app/Http/Controllers/ContactController.php:18
+ * @see app/Http/Controllers/ContactController.php:20
  * @route '/contacts/{contact}'
  */
 destroy.url = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -334,7 +389,7 @@ destroy.url = (args: { contact: number | { id: number } } | [contact: number | {
 
 /**
 * @see \App\Http\Controllers\ContactController::destroy
- * @see app/Http/Controllers/ContactController.php:18
+ * @see app/Http/Controllers/ContactController.php:20
  * @route '/contacts/{contact}'
  */
 destroy.delete = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -344,7 +399,7 @@ destroy.delete = (args: { contact: number | { id: number } } | [contact: number 
 
     /**
 * @see \App\Http\Controllers\ContactController::destroy
- * @see app/Http/Controllers/ContactController.php:18
+ * @see app/Http/Controllers/ContactController.php:20
  * @route '/contacts/{contact}'
  */
     const destroyForm = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -359,7 +414,7 @@ destroy.delete = (args: { contact: number | { id: number } } | [contact: number 
 
             /**
 * @see \App\Http\Controllers\ContactController::destroy
- * @see app/Http/Controllers/ContactController.php:18
+ * @see app/Http/Controllers/ContactController.php:20
  * @route '/contacts/{contact}'
  */
         destroyForm.delete = (args: { contact: number | { id: number } } | [contact: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -373,6 +428,6 @@ destroy.delete = (args: { contact: number | { id: number } } | [contact: number 
         })
     
     destroy.form = destroyForm
-const ContactController = { unsubscribeViaForm, unsubscribeViaLink, index, store, destroy }
+const ContactController = { requestData, unsubscribeViaForm, unsubscribeViaLink, index, store, destroy }
 
 export default ContactController

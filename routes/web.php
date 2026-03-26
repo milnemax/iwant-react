@@ -18,6 +18,9 @@ Route::post('privacy', [ContactUsController::class, 'send'])
 Route::get('recipients', fn() => Inertia::render('recipients'))
     ->name('recipients');
 
+Route::post('recipients', [ContactController::class, 'requestData'])
+    ->name('submit-data-request');
+
 Route::get('unsubscribe', fn() => Inertia::render('unsubscribe'))
     ->name('unsubscribe');
 

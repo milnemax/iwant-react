@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\YourDetails;
 use App\Models\Contact;
 use App\Models\GdprLog;
 use App\Models\Unsubscribe;
@@ -10,6 +11,7 @@ use App\Pivots\EmailPreferenceUser;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -43,6 +45,44 @@ class ContactController extends Controller
         return Inertia::render('private/contacts', [
             'contacts' => $contacts
         ]);
+    }
+
+    public function requestData(Request $request): RedirectResponse
+    {
+        $valid = $request->validate([
+            'data_request_email' => 'required|email'
+        ]);
+
+        $details['email'] = $valid['data_request_email'];
+
+        $user = User::where('email', $valid['data_request_email'])->first();
+        if ($user instanceof User) {
+            $details['user'] = $user;
+        }
+
+        $contact = Contact::where('email', $valid['data_request_email'])->first();
+        if ($contact instanceof Contact) {
+            $details['contact'] = $contact;
+        }
+
+        $contacts = '';
+        $recipientOfUsers = User::whereHas('contacts', function($query) use($user) {
+            $query->where('user_id', $user->id);
+        })->get();
+
+        foreach($recipientOfUsers as $user) {
+            $contacts .= ($contacts === '' ? '' : ', ') . $user->name;
+        }
+
+        if ($contacts !== '') {
+            $details['contacts'] = $contacts;
+        }
+
+        GdprLog::logEvent('guest', 'Personal Detail Request');
+
+        Mail::to(config('mail.system.address'))->send(new YourDetails($details));
+
+        return redirect('/recipients')->with('success', 'Your details have been sent to the email address provided.');
     }
 
     public function store(Request $request): RedirectResponse
