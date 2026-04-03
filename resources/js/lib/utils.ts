@@ -21,6 +21,26 @@ export function formatDate(date: string | null): string {
     })
 }
 
+export function mapMonth(month: number): string {
+    const months = [
+        '', // placeholder so index matches month number
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ];
+
+    return months[month] ?? 'December';
+}
+
 export function useClickAway(
     ref: React.RefObject<HTMLElement>,
     handler: () => void

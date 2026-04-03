@@ -44,4 +44,3 @@ Route::post('shared-list', [SharedListController::class, 'sharedListFromCode'])
 
 require __DIR__.'/admin.php';
 require __DIR__.'/private.php';
-require __DIR__.'/settings.php';

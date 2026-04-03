@@ -2,6 +2,7 @@ import { Form, Link } from '@inertiajs/react';
 import { privacy } from '../../../routes/index';
 import { store } from '@/routes/register';
 import { SubmitBtn } from '../submit-btn';
+import {PasswordField} from "@/components/forms/password-field";
 
 export default function RegisterForm() {
     return (
@@ -28,13 +29,13 @@ export default function RegisterForm() {
                     )}
 
                     <label className="block mt-3" htmlFor="password">Password</label>
-                    <input className="w-full border mt-1 text-gray-500 p-1 focus:outline-none" type="password" id="password" name="password" required autoComplete="new-password" />
+                    <PasswordField fieldName="password" autoComplete="new-password" />
                     {(errors.password || errors.password_confirmation) && (
                         <p className="text-sm text-red-600">Check your passwords match and they meet the criteria.</p>
                     )}
 
                     <label className="block mt-3" htmlFor="password_confirmation">Confirm Your Password</label>
-                    <input className="w-full border mt-1 text-gray-500 p-1 focus:outline-none" type="password" id="password_confirmation" name="password_confirmation" required />
+                    <PasswordField fieldName="password_confirmation" autoComplete="off" />
                     <p className="text-sm text-gray-400">Your password must be at least 6 characters and contain a upper case letter and a number.</p>
 
                     <label htmlFor="publish_notifications" className="inline-flex items-center mt-4">

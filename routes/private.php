@@ -7,6 +7,7 @@ use App\Http\Controllers\ListItemController;
 use App\Http\Controllers\LookUpController;
 use App\Http\Controllers\SharedListController;
 use App\Http\Controllers\ShoppingListController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -28,9 +29,29 @@ Route::get('dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
 
-Route::get('details', function () {
-    return Inertia::render('details');
-})->middleware(['auth', 'verified'])->name('details');
+Route::get('details', [UserController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('details');
+
+Route::put('details', [UserController::class, 'update'])
+    ->middleware(['auth', 'verified'])
+    ->name('details-update');
+
+Route::delete('details/close-account', [UserController::class, 'closeAccount'])
+    ->middleware(['auth', 'verified'])
+    ->name('close-account');
+
+Route::put('details/password', [UserController::class, 'updatePassword'])
+    ->middleware(['auth', 'verified'])
+    ->name('password-update');
+
+Route::put('details/permissions', [UserController::class, 'updatePermissions'])
+    ->middleware(['auth', 'verified'])
+    ->name('permissions-update');
+
+Route::post('details/export', [UserController::class, 'exportDetails'])
+    ->middleware(['auth', 'verified'])
+    ->name('export-details');
 
 
 Route::get('lists', [ListController::class, 'index'])

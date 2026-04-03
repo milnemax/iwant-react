@@ -3,6 +3,7 @@ import { privacy } from '../../../routes/index';
 import { store } from '../../../routes/login/index';
 import { request } from '../../../routes/password/index';
 import { SubmitBtn } from '../submit-btn';
+import {PasswordField} from "@/components/forms/password-field";
 
 export default function LoginForm() {
     return (
@@ -20,7 +21,7 @@ export default function LoginForm() {
                     )}
 
                     <label className="block mt-3" htmlFor="password">Password</label>
-                    <input className="w-full border mt-1 text-gray-500 p-1 focus:outline-none" type="password" id="password" name="password" required autoComplete="current-password" />
+                    <PasswordField fieldName="password" autoComplete="current-password" />
 
                     <label htmlFor="remember" className="inline-flex items-center mt-2">
                         <input id="remember" type="checkbox" className="form-checkbox h-4 w-4 text-[#336b87] focus:outline-none" name="remember" />

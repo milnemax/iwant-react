@@ -1507,7 +1507,8 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     
     dashboard.form = dashboardForm
 /**
- * @see routes/private.php:31
+* @see \App\Http\Controllers\UserController::details
+ * @see app/Http/Controllers/UserController.php:94
  * @route '/details'
  */
 export const details = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1521,7 +1522,8 @@ details.definition = {
 } satisfies RouteDefinition<["get","head"]>
 
 /**
- * @see routes/private.php:31
+* @see \App\Http\Controllers\UserController::details
+ * @see app/Http/Controllers/UserController.php:94
  * @route '/details'
  */
 details.url = (options?: RouteQueryOptions) => {
@@ -1529,7 +1531,8 @@ details.url = (options?: RouteQueryOptions) => {
 }
 
 /**
- * @see routes/private.php:31
+* @see \App\Http\Controllers\UserController::details
+ * @see app/Http/Controllers/UserController.php:94
  * @route '/details'
  */
 details.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -1537,7 +1540,8 @@ details.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
     method: 'get',
 })
 /**
- * @see routes/private.php:31
+* @see \App\Http\Controllers\UserController::details
+ * @see app/Http/Controllers/UserController.php:94
  * @route '/details'
  */
 details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -1546,7 +1550,8 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 })
 
     /**
- * @see routes/private.php:31
+* @see \App\Http\Controllers\UserController::details
+ * @see app/Http/Controllers/UserController.php:94
  * @route '/details'
  */
     const detailsForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1555,7 +1560,8 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     })
 
             /**
- * @see routes/private.php:31
+* @see \App\Http\Controllers\UserController::details
+ * @see app/Http/Controllers/UserController.php:94
  * @route '/details'
  */
         detailsForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1563,7 +1569,8 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
             method: 'get',
         })
             /**
- * @see routes/private.php:31
+* @see \App\Http\Controllers\UserController::details
+ * @see app/Http/Controllers/UserController.php:94
  * @route '/details'
  */
         detailsForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -1577,6 +1584,321 @@ details.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
     
     details.form = detailsForm
+/**
+* @see \App\Http\Controllers\UserController::detailsUpdate
+ * @see app/Http/Controllers/UserController.php:108
+ * @route '/details'
+ */
+export const detailsUpdate = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: detailsUpdate.url(options),
+    method: 'put',
+})
+
+detailsUpdate.definition = {
+    methods: ["put"],
+    url: '/details',
+} satisfies RouteDefinition<["put"]>
+
+/**
+* @see \App\Http\Controllers\UserController::detailsUpdate
+ * @see app/Http/Controllers/UserController.php:108
+ * @route '/details'
+ */
+detailsUpdate.url = (options?: RouteQueryOptions) => {
+    return detailsUpdate.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\UserController::detailsUpdate
+ * @see app/Http/Controllers/UserController.php:108
+ * @route '/details'
+ */
+detailsUpdate.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: detailsUpdate.url(options),
+    method: 'put',
+})
+
+    /**
+* @see \App\Http\Controllers\UserController::detailsUpdate
+ * @see app/Http/Controllers/UserController.php:108
+ * @route '/details'
+ */
+    const detailsUpdateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: detailsUpdate.url({
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PUT',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\UserController::detailsUpdate
+ * @see app/Http/Controllers/UserController.php:108
+ * @route '/details'
+ */
+        detailsUpdateForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: detailsUpdate.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    detailsUpdate.form = detailsUpdateForm
+/**
+* @see \App\Http\Controllers\UserController::closeAccount
+ * @see app/Http/Controllers/UserController.php:21
+ * @route '/details/close-account'
+ */
+export const closeAccount = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+    url: closeAccount.url(options),
+    method: 'delete',
+})
+
+closeAccount.definition = {
+    methods: ["delete"],
+    url: '/details/close-account',
+} satisfies RouteDefinition<["delete"]>
+
+/**
+* @see \App\Http\Controllers\UserController::closeAccount
+ * @see app/Http/Controllers/UserController.php:21
+ * @route '/details/close-account'
+ */
+closeAccount.url = (options?: RouteQueryOptions) => {
+    return closeAccount.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\UserController::closeAccount
+ * @see app/Http/Controllers/UserController.php:21
+ * @route '/details/close-account'
+ */
+closeAccount.delete = (options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
+    url: closeAccount.url(options),
+    method: 'delete',
+})
+
+    /**
+* @see \App\Http\Controllers\UserController::closeAccount
+ * @see app/Http/Controllers/UserController.php:21
+ * @route '/details/close-account'
+ */
+    const closeAccountForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: closeAccount.url({
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'DELETE',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\UserController::closeAccount
+ * @see app/Http/Controllers/UserController.php:21
+ * @route '/details/close-account'
+ */
+        closeAccountForm.delete = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: closeAccount.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'DELETE',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    closeAccount.form = closeAccountForm
+/**
+* @see \App\Http\Controllers\UserController::passwordUpdate
+ * @see app/Http/Controllers/UserController.php:135
+ * @route '/details/password'
+ */
+export const passwordUpdate = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: passwordUpdate.url(options),
+    method: 'put',
+})
+
+passwordUpdate.definition = {
+    methods: ["put"],
+    url: '/details/password',
+} satisfies RouteDefinition<["put"]>
+
+/**
+* @see \App\Http\Controllers\UserController::passwordUpdate
+ * @see app/Http/Controllers/UserController.php:135
+ * @route '/details/password'
+ */
+passwordUpdate.url = (options?: RouteQueryOptions) => {
+    return passwordUpdate.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\UserController::passwordUpdate
+ * @see app/Http/Controllers/UserController.php:135
+ * @route '/details/password'
+ */
+passwordUpdate.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: passwordUpdate.url(options),
+    method: 'put',
+})
+
+    /**
+* @see \App\Http\Controllers\UserController::passwordUpdate
+ * @see app/Http/Controllers/UserController.php:135
+ * @route '/details/password'
+ */
+    const passwordUpdateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: passwordUpdate.url({
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PUT',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\UserController::passwordUpdate
+ * @see app/Http/Controllers/UserController.php:135
+ * @route '/details/password'
+ */
+        passwordUpdateForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: passwordUpdate.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    passwordUpdate.form = passwordUpdateForm
+/**
+* @see \App\Http\Controllers\UserController::permissionsUpdate
+ * @see app/Http/Controllers/UserController.php:151
+ * @route '/details/permissions'
+ */
+export const permissionsUpdate = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: permissionsUpdate.url(options),
+    method: 'put',
+})
+
+permissionsUpdate.definition = {
+    methods: ["put"],
+    url: '/details/permissions',
+} satisfies RouteDefinition<["put"]>
+
+/**
+* @see \App\Http\Controllers\UserController::permissionsUpdate
+ * @see app/Http/Controllers/UserController.php:151
+ * @route '/details/permissions'
+ */
+permissionsUpdate.url = (options?: RouteQueryOptions) => {
+    return permissionsUpdate.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\UserController::permissionsUpdate
+ * @see app/Http/Controllers/UserController.php:151
+ * @route '/details/permissions'
+ */
+permissionsUpdate.put = (options?: RouteQueryOptions): RouteDefinition<'put'> => ({
+    url: permissionsUpdate.url(options),
+    method: 'put',
+})
+
+    /**
+* @see \App\Http\Controllers\UserController::permissionsUpdate
+ * @see app/Http/Controllers/UserController.php:151
+ * @route '/details/permissions'
+ */
+    const permissionsUpdateForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: permissionsUpdate.url({
+                    [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                        _method: 'PUT',
+                        ...(options?.query ?? options?.mergeQuery ?? {}),
+                    }
+                }),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\UserController::permissionsUpdate
+ * @see app/Http/Controllers/UserController.php:151
+ * @route '/details/permissions'
+ */
+        permissionsUpdateForm.put = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: permissionsUpdate.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'PUT',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'post',
+        })
+    
+    permissionsUpdate.form = permissionsUpdateForm
+/**
+* @see \App\Http\Controllers\UserController::exportDetails
+ * @see app/Http/Controllers/UserController.php:46
+ * @route '/details/export'
+ */
+export const exportDetails = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: exportDetails.url(options),
+    method: 'post',
+})
+
+exportDetails.definition = {
+    methods: ["post"],
+    url: '/details/export',
+} satisfies RouteDefinition<["post"]>
+
+/**
+* @see \App\Http\Controllers\UserController::exportDetails
+ * @see app/Http/Controllers/UserController.php:46
+ * @route '/details/export'
+ */
+exportDetails.url = (options?: RouteQueryOptions) => {
+    return exportDetails.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\UserController::exportDetails
+ * @see app/Http/Controllers/UserController.php:46
+ * @route '/details/export'
+ */
+exportDetails.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
+    url: exportDetails.url(options),
+    method: 'post',
+})
+
+    /**
+* @see \App\Http\Controllers\UserController::exportDetails
+ * @see app/Http/Controllers/UserController.php:46
+ * @route '/details/export'
+ */
+    const exportDetailsForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+        action: exportDetails.url(options),
+        method: 'post',
+    })
+
+            /**
+* @see \App\Http\Controllers\UserController::exportDetails
+ * @see app/Http/Controllers/UserController.php:46
+ * @route '/details/export'
+ */
+        exportDetailsForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
+            action: exportDetails.url(options),
+            method: 'post',
+        })
+    
+    exportDetails.form = exportDetailsForm
 /**
 * @see \App\Http\Controllers\ListController::lists
  * @see app/Http/Controllers/ListController.php:40

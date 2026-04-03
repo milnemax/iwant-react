@@ -1,10 +1,11 @@
 export type * from './admin';
 export type * from './auth';
-export type * from './navigation';
 export type * from './contacts';
 export type * from './lists';
 
 import type { Auth } from './auth';
+import {InertiaLinkProps} from "@inertiajs/react";
+import type { LucideIcon } from 'lucide-react';
 
 export type SharedData = {
     name: string;
@@ -29,3 +30,10 @@ export type PaginationLink = {
     label: string
     active: boolean
 }
+
+export type NavItem = {
+    title: string;
+    href: NonNullable<InertiaLinkProps['href']>;
+    icon?: LucideIcon | null;
+    isActive?: boolean;
+};
