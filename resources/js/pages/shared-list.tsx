@@ -7,7 +7,7 @@ import SharedListItemCard from '@/components/cards/shared-list-item-card';
 import { formatDate } from '@/lib/utils';
 import {useState} from "react";
 import type { SharedListItem, SharedList, Contact } from '@/types';
-import SubmitOfferForm from "@/components/forms/submit-offer-form";
+import SubmitOfferForm from "@/components/forms/public/submit-offer-form";
 
 type PageProps = {
     list?: SharedList,

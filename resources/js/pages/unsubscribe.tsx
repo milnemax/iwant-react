@@ -3,7 +3,7 @@ import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
 import SuccessMsg from '@/components/messages/success-msg';
 import ErrorMsg from '@/components/messages/error-msg';
-import UnsubscribeForm from '@/components/forms/unsubscribe-form';
+import UnsubscribeForm from '@/components/forms/public/unsubscribe-form';
 
 export default function Unsubscribe() {
     return (

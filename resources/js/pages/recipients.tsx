@@ -3,7 +3,7 @@ import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
 import SuccessMsg from '@/components/messages/success-msg';
 import ErrorMsg from '@/components/messages/error-msg';
-import DataRequestForm from '@/components/forms/data-request-form';
+import DataRequestForm from '@/components/forms/public/data-request-form';
 
 export default function Recipients() {
     return (

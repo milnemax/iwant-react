@@ -1,7 +1,7 @@
 import { Head } from '@inertiajs/react';
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
-import VerifySharedListCodeForm from '@/components/forms/verify-shared-list-code-form';
+import VerifySharedListCodeForm from '@/components/forms/public/verify-shared-list-code-form';
 
 import homeBanner from '@/assets/home_banner.png';
 
