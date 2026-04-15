@@ -31,6 +31,11 @@ function LookUpField({
         setFieldValue(value);
     };
 
+    const clearSuggestions = () => {
+        setSuggestions([]);
+        setShowSuggestions(false);
+    };
+
     const searchForSuggestions = useCallback(async (term: string) => {
         if (term.length < 2 || term === (defaultValue ?? '')) {
             clearSuggestions();
@@ -46,12 +51,7 @@ function LookUpField({
             clearSuggestions();
         }
     }, [fieldName, defaultValue]);
-
-    const clearSuggestions = () => {
-        setSuggestions([]);
-        setShowSuggestions(false);
-    };
-
+    
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
