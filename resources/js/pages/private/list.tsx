@@ -1,7 +1,7 @@
 import {Head, usePage, router} from '@inertiajs/react';
 import {useState} from "react";
 
-import type { PaginatedListItems, ListItem, List, ListType } from '@/types';
+import type { PaginatedListItems, ListItem, List } from '@/types';
 
 import AddListItemForm from '@/components/forms/private/add-list-item-form';
 import AppHeader from '@/components/app-header';

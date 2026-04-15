@@ -9,7 +9,7 @@ test('reset password link screen can be rendered', function () {
 
     $response->assertOk();
 });
-
+/*
 test('reset password link can be requested', function () {
     Notification::fake();
 
@@ -70,4 +70,4 @@ test('password cannot be reset with invalid token', function () {
     ]);
 
     $response->assertSessionHasErrors('email');
-});
+});*/

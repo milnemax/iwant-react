@@ -2,7 +2,7 @@ import {Form, usePage} from '@inertiajs/react';
 
 import { listShare } from '@/routes';
 
-import type { PaginatedListItems, ListItem, ListContact, List } from '@/types';
+import type { PaginatedListItems, ListContact, List } from '@/types';
 
 import { SubmitBtn } from '@/components/forms/submit-btn';
 
@@ -31,7 +31,7 @@ export default function ShareListForm() {
                 method="post"
                 className="p-6"
             >
-                {({ errors, processing }) => (
+                {({ processing }) => (
                     <>
                         {contacts.map((item) => (
                             <label htmlFor={`contact_${item.id}`} className="w-full inline-flex items-center mt-4 cursor-pointer" key={item.id}>

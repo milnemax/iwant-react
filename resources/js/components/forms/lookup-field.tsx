@@ -31,20 +31,6 @@ function LookUpField({
         setFieldValue(value);
     };
 
-    useEffect(() => {
-        const delay = setTimeout(() => {
-            if (fieldValue === lastSearchRef.current) {
-                return;
-            }
-
-            lastSearchRef.current = fieldValue;
-
-            searchForSuggestions(fieldValue);
-        }, 300);
-
-        return () => clearTimeout(delay);
-    }, [fieldValue]);
-
     const searchForSuggestions = async (term: string) => {
         if (term.length < 2 || term === (defaultValue ?? '')) {
             clearSuggestions();
@@ -68,6 +54,20 @@ function LookUpField({
 
     const wrapperRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+        const delay = setTimeout(() => {
+            if (fieldValue === lastSearchRef.current) {
+                return;
+            }
+
+            lastSearchRef.current = fieldValue;
+
+            searchForSuggestions(fieldValue);
+        }, 300);
+
+        return () => clearTimeout(delay);
+    }, [fieldValue]);
+    
     useClickAway(wrapperRef, () => { setShowSuggestions(false) });
 
     return (

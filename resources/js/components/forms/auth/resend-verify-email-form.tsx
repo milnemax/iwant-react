@@ -1,7 +1,6 @@
 import { Form, Link } from '@inertiajs/react';
 
 import { logout } from "@/routes";
-import { request } from "@/routes/password";
 import { send } from '@/routes/verification';
 
 import { SubmitBtn } from '../submit-btn';

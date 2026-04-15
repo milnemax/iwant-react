@@ -25,17 +25,6 @@ export default function AddListForm() {
     const [selectedType, setSelectedType] = useState<number>(0);
     const [dueDate, setDueDate] = useState<Date | null>(null);
 
-    // Populate due date automatically for Birthday or Christmas
-    useEffect(() => {
-        if (birthday && selectedType === birthdayTypeId) {
-            setDueDate(new Date(birthday));
-        } else if (christmas && selectedType === christmasTypeId) {
-            setDueDate(new Date(christmas));
-        } else {
-            setDueDate(null);
-        }
-    }, [selectedType, page.props]);
-
     return (
         <Form
             action={listsStore()}
@@ -58,7 +47,16 @@ export default function AddListForm() {
                                 name="list_type"
                                 className="w-full border mt-1 text-gray-500 p-1 focus:outline-none"
                                 value={selectedType}
-                                onChange={(e) => setSelectedType(Number(e.target.value))}
+                                onChange={(e) => {
+                                    const value = Number(e.target.value);
+                                    setSelectedType(value);
+
+                                    if (birthday && value === birthdayTypeId) {
+                                        setDueDate(new Date(birthday));
+                                    } else if (christmas && value === christmasTypeId) {
+                                        setDueDate(new Date(christmas));
+                                    }
+                                }}
                             >
                                 <option value="0">Please Select...</option>
                                 {listTypes.map((item, index) => (

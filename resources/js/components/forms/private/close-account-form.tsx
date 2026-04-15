@@ -33,7 +33,7 @@ export default function CloseAccountForm() {
                         method="delete"
                         className="w-full"
                     >
-                        {({ errors, processing }) => (
+                        {({ processing }) => (
                             <>
                                 <label htmlFor="user_unsubscribe" className="w-full inline-flex items-center mt-4 cursor-pointer">
                                     <input id="user_unsubscribe" type="checkbox" className="form-checkbox h-4 w-4 text-[#336b87] focus:outline-none" name="user_unsubscribe" value="1" />

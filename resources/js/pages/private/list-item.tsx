@@ -1,6 +1,6 @@
 import {Head, usePage} from '@inertiajs/react';
 
-import type { ListItem, List } from '@/types';
+import type { ListItem } from '@/types';
 
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';

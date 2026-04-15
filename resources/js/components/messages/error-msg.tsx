@@ -10,21 +10,17 @@ export default function ErrorMsg({ message }: ErrorMsgProps) {
 
     const resolvedMessage = message ?? flash?.error ?? null;
 
-    const [visible, setVisible] = useState(false);
+    if (!resolvedMessage) return null;
+
+    const [visible, setVisible] = useState(true);
 
     useEffect(() => {
-        if (resolvedMessage) {
-            setVisible(true);
+        const timer = setTimeout(() => {
+            setVisible(false);
+        }, 5000);
 
-            const timer = setTimeout(() => {
-                setVisible(false);
-            }, 5000);
-
-            return () => clearTimeout(timer);
-        }
+        return () => clearTimeout(timer);
     }, [resolvedMessage]);
-
-    if (!resolvedMessage) return null;
 
     return (
         <div

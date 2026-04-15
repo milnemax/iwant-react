@@ -2,6 +2,8 @@ import { Loader2Icon } from "lucide-react"
 
 import type { LucideIcon } from "lucide-react";
 
+import { cn } from "@/lib/utils"
+
 type PrimaryBtnProps = React.ComponentProps<"button"> & {
     processing?: boolean,
     buttonClick: () => void,
@@ -22,10 +24,7 @@ function PrimaryBtn({
             type="button"
             onClick={() => buttonClick()}
             disabled={processing || props.disabled}
-            className="
-            bg-[#336b87] hover:bg-[#21526b] disabled:bg-gray-500 disabled:hover:bg-gray-500
-            text-white hover:text-gray-300 disabled:text-gray-300 disabled:hover:text-gray-300
-            rounded px-3 py-2 flex gap-2 items-center cursor-pointer"
+            className={ cn("bg-[#336b87] hover:bg-[#21526b] disabled:bg-gray-500 disabled:hover:bg-gray-500 text-white hover:text-gray-300 disabled:text-gray-300 disabled:hover:text-gray-300 rounded px-3 py-2 flex gap-2 items-center cursor-pointer", className) }
         >
             {processing ? (
                 <Loader2Icon

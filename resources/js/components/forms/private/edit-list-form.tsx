@@ -26,15 +26,6 @@ export default function EditListForm() {
     const [selectedType, setSelectedType] = useState<number>(list.list_type.id);
     const [dueDate, setDueDate] = useState<Date | null>(new Date(list.due_date));
 
-    // Populate due date automatically for Birthday or Christmas
-    useEffect(() => {
-        if (birthday && selectedType === birthdayTypeId) {
-            setDueDate(new Date(birthday));
-        } else if (christmas && selectedType === christmasTypeId) {
-            setDueDate(new Date(christmas));
-        }
-    }, [selectedType, page.props]);
-
     return (
         <details className="shadow-lg rounded-lg bg-white w-full max-w-[335px] lg:max-w-4xl mt-20 mb-6">
             <summary className="cursor-pointer px-6 py-4 text-2xl text-[#336b87]">
@@ -59,7 +50,16 @@ export default function EditListForm() {
                                     name="list_type"
                                     className="w-full border mt-1 text-gray-500 p-1 focus:outline-none"
                                     value={selectedType}
-                                    onChange={(e) => setSelectedType(Number(e.target.value))}
+                                    onChange={(e) => {
+                                        const value = Number(e.target.value);
+                                        setSelectedType(value);
+
+                                        if (birthday && value === birthdayTypeId) {
+                                            setDueDate(new Date(birthday));
+                                        } else if (christmas && value === christmasTypeId) {
+                                            setDueDate(new Date(christmas));
+                                        }
+                                    }}
                                 >
                                     <option value="0">Please Select...</option>
                                     {listTypes.map((item, index) => (

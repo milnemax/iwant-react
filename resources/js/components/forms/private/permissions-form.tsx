@@ -19,7 +19,7 @@ export default function PermissionsForm() {
             method="put"
             className="shadow-lg rounded-lg bg-white w-full max-w-[335px] lg:max-w-4xl p-6 my-10"
         >
-            {({ errors, processing }) => (
+            {({ processing }) => (
                 <>
                     <h3 className="text-xl my-2">Your Notification Permissions</h3>
 
