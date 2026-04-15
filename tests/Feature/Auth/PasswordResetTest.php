@@ -9,11 +9,11 @@ test('reset password link screen can be rendered', function () {
 
     $response->assertOk();
 });
-/*
+
 test('reset password link can be requested', function () {
     Notification::fake();
 
-    $user = User::factory()->create();
+    $user = User::where('email', 'admin@milnedevelopment.co.uk')->first();
 
     $this->post(route('password.email'), ['email' => $user->email]);
 
@@ -23,7 +23,7 @@ test('reset password link can be requested', function () {
 test('reset password screen can be rendered', function () {
     Notification::fake();
 
-    $user = User::factory()->create();
+    $user = User::where('email', 'admin@milnedevelopment.co.uk')->first();
 
     $this->post(route('password.email'), ['email' => $user->email]);
 
@@ -39,7 +39,7 @@ test('reset password screen can be rendered', function () {
 test('password can be reset with valid token', function () {
     Notification::fake();
 
-    $user = User::factory()->create();
+    $user = User::where('email', 'admin@milnedevelopment.co.uk')->first();
 
     $this->post(route('password.email'), ['email' => $user->email]);
 
@@ -47,8 +47,8 @@ test('password can be reset with valid token', function () {
         $response = $this->post(route('password.update'), [
             'token' => $notification->token,
             'email' => $user->email,
-            'password' => 'password',
-            'password_confirmation' => 'password',
+            'password' => 'NewPass1234!',
+            'password_confirmation' => 'NewPass1234!',
         ]);
 
         $response
@@ -60,7 +60,7 @@ test('password can be reset with valid token', function () {
 });
 
 test('password cannot be reset with invalid token', function () {
-    $user = User::factory()->create();
+    $user = User::where('email', 'admin@milnedevelopment.co.uk')->first();
 
     $response = $this->post(route('password.update'), [
         'token' => 'invalid-token',
@@ -70,4 +70,4 @@ test('password cannot be reset with invalid token', function () {
     ]);
 
     $response->assertSessionHasErrors('email');
-});*/
+});

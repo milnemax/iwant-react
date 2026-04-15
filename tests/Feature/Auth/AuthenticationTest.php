@@ -2,20 +2,19 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\RateLimiter;
-use Laravel\Fortify\Features;
 
 test('login screen can be rendered', function () {
     $response = $this->get(route('login'));
 
     $response->assertOk();
 });
-/*
+
 test('users can authenticate using the login screen', function () {
-    $user = User::factory()->create();
+    $user = User::where('email', 'admin@milnedevelopment.co.uk')->first();
 
     $response = $this->post(route('login.store'), [
         'email' => $user->email,
-        'password' => 'password',
+        'password' => 'Pass1234!',
     ]);
 
     $this->assertAuthenticated();
@@ -23,7 +22,7 @@ test('users can authenticate using the login screen', function () {
 });
 
 test('users can not authenticate with invalid password', function () {
-    $user = User::factory()->create();
+    $user = User::where('email', 'admin@milnedevelopment.co.uk')->first();
 
     $this->post(route('login.store'), [
         'email' => $user->email,
@@ -34,7 +33,7 @@ test('users can not authenticate with invalid password', function () {
 });
 
 test('users can logout', function () {
-    $user = User::factory()->create();
+    $user = User::where('email', 'admin@milnedevelopment.co.uk')->first();
 
     $response = $this->actingAs($user)->post(route('logout'));
 
@@ -43,7 +42,7 @@ test('users can logout', function () {
 });
 
 test('users are rate limited', function () {
-    $user = User::factory()->create();
+    $user = User::where('email', 'admin@milnedevelopment.co.uk')->first();
 
     RateLimiter::increment(md5('login'.implode('|', [$user->email, '127.0.0.1'])), amount: 5);
 
@@ -54,4 +53,3 @@ test('users are rate limited', function () {
 
     $response->assertTooManyRequests();
 });
-*/

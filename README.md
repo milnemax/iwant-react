@@ -31,4 +31,6 @@ php artisan migrate:fresh<br>
 php artisan db:seed
 
 Login - admin@milnedevelopment.co.uk<br>
-Password - PASS1234
+Password - Pass1234!
+
+Unit Tests use the same database with transactions

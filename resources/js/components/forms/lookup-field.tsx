@@ -51,7 +51,7 @@ function LookUpField({
             clearSuggestions();
         }
     }, [fieldName, defaultValue]);
-    
+
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {

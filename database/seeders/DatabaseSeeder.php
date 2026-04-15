@@ -91,7 +91,8 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'name' => $name,
             'email' => $emailPrefix . '@milnedevelopment.co.uk',
-            'password' => Hash::make('PASS1234')
+            'password' => Hash::make('Pass1234!'),
+            'email_verified_at' => Carbon::now(),
         ]);
 
         RoleUser::create([ 'role_id' => Role::USER, 'user_id' => $user->id ]);

@@ -1,6 +1,6 @@
 import {Head, usePage} from '@inertiajs/react';
 
-import type { PaginatedSharedLists, SharedList } from '@/types';
+import type { PaginatedSharedLists } from '@/types';
 
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
