@@ -5,23 +5,25 @@ interface SuccessMsgProps {
     message?: string | null;
 }
 
+type AppPageProps = {
+    flash?: {
+        success?: string | null;
+    };
+};
+
 export default function SuccessMsg({ message }: SuccessMsgProps) {
-    const { flash } = usePage().props as any;
+    const { flash } = usePage().props as AppPageProps;
 
     const resolvedMessage = message ?? flash?.success ?? null;
 
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(true);
 
     useEffect(() => {
-        if (resolvedMessage) {
-            setVisible(true);
+        const timer = setTimeout(() => {
+            setVisible(false);
+        }, 5000);
 
-            const timer = setTimeout(() => {
-                setVisible(false);
-            }, 5000);
-
-            return () => clearTimeout(timer);
-        }
+        return () => clearTimeout(timer);
     }, [resolvedMessage]);
 
     if (!resolvedMessage) return null;

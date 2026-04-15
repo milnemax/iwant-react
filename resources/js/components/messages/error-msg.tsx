@@ -5,12 +5,16 @@ interface ErrorMsgProps {
     message?: string | null;
 }
 
+type AppPageProps = {
+    flash?: {
+        error?: string | null;
+    };
+};
+
 export default function ErrorMsg({ message }: ErrorMsgProps) {
-    const { flash } = usePage().props as any;
+    const { flash } = usePage().props as AppPageProps;
 
     const resolvedMessage = message ?? flash?.error ?? null;
-
-    if (!resolvedMessage) return null;
 
     const [visible, setVisible] = useState(true);
 
@@ -21,6 +25,8 @@ export default function ErrorMsg({ message }: ErrorMsgProps) {
 
         return () => clearTimeout(timer);
     }, [resolvedMessage]);
+
+    if (!resolvedMessage) return null;
 
     return (
         <div

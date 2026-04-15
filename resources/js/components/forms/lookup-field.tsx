@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 
 import { useClickAway } from "@/lib/utils";
 
@@ -31,7 +31,7 @@ function LookUpField({
         setFieldValue(value);
     };
 
-    const searchForSuggestions = async (term: string) => {
+    const searchForSuggestions = useCallback(async (term: string) => {
         if (term.length < 2 || term === (defaultValue ?? '')) {
             clearSuggestions();
             return;
@@ -45,7 +45,7 @@ function LookUpField({
         } catch {
             clearSuggestions();
         }
-    };
+    }, [fieldName, defaultValue]);
 
     const clearSuggestions = () => {
         setSuggestions([]);
@@ -66,8 +66,8 @@ function LookUpField({
         }, 300);
 
         return () => clearTimeout(delay);
-    }, [fieldValue]);
-    
+    }, [fieldValue,searchForSuggestions]);
+
     useClickAway(wrapperRef, () => { setShowSuggestions(false) });
 
     return (
