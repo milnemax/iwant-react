@@ -1,8 +1,10 @@
 import { Form, Link } from '@inertiajs/react';
-import { logout } from '../../../routes/index';
-import { SubmitBtn } from '../submit-btn';
+
+import { logout } from "@/routes";
+import { request } from "@/routes/password";
 import { send } from '@/routes/verification';
-import {request} from "@/routes/password";
+
+import { SubmitBtn } from '../submit-btn';
 
 export default function ResendVerifyEmailForm() {
     return (

@@ -1,10 +1,12 @@
 import {Head, usePage} from '@inertiajs/react';
+
+import type { ListItem, List } from '@/types';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
-import SuccessMsg from '@/components/messages/success-msg';
-import ErrorMsg from '@/components/messages/error-msg';
 import EditListItemForm from '@/components/forms/private/edit-list-item-form';
-import type { ListItem, List } from '@/types';
+import ErrorMsg from '@/components/messages/error-msg';
+import SuccessMsg from '@/components/messages/success-msg';
 
 type PageProps = {
     listItem: ListItem,

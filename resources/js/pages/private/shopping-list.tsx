@@ -1,12 +1,13 @@
-import {Head, usePage} from '@inertiajs/react';
-import { router } from '@inertiajs/react';
+import {Head, router, usePage} from '@inertiajs/react';
 import { shoppingListMarkBought } from '@/routes';
+
+import type { ShoppingList } from '@/types';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
+import ErrorMsg from '@/components/messages/error-msg';
 import ShoppingListItemCard from '@/components/cards/shopping-list-item-card';
 import SuccessMsg from '@/components/messages/success-msg';
-import ErrorMsg from '@/components/messages/error-msg';
-import type { ShoppingList } from '@/types';
 
 type PageProps = {
     shoppingLists: ShoppingList[],

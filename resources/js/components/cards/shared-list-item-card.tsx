@@ -1,8 +1,12 @@
-import type { SharedListItem, Contact } from '@/types';
-import { CircleCheck, MessageCircleMore } from 'lucide-react';
-import { PrimaryBtn} from "@/components/forms/primary-btn";
-import { sharedListClaim } from '@/routes';;
 import {router} from "@inertiajs/react";
+
+import { sharedListClaim } from '@/routes';
+
+import type { SharedListItem, Contact } from '@/types';
+
+import { CircleCheck, MessageCircleMore } from 'lucide-react';
+
+import { PrimaryBtn} from "@/components/forms/primary-btn";
 
 interface SharedListItemCardProps {
     sharedListItem: SharedListItem,

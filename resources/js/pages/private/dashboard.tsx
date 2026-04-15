@@ -1,10 +1,14 @@
 import {Head, usePage} from '@inertiajs/react';
+
+import { contacts, details, lists, sharedLists, shoppingList } from '@/routes';
+
+import { BookOpen, ClipboardList, ContactRound, ShoppingCart, User } from 'lucide-react'
+
+import type { DashboardProps } from '@/types';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
 import DashboardCard from '@/components/cards/dashboard-card';
-import { BookOpen, ClipboardList, ContactRound, ShoppingCart, User } from 'lucide-react'
-import { contacts, details, lists, sharedLists, shoppingList } from '@/routes';
-import type { DashboardProps } from '@/types';
 
 export default function Dashboard() {
     const {

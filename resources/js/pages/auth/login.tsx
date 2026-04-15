@@ -1,4 +1,5 @@
 import { Head } from '@inertiajs/react';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
 import LoginForm from '@/components/forms/auth/login-form';

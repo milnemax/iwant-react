@@ -1,17 +1,19 @@
 import {Head, usePage} from '@inertiajs/react';
+
+import type { PaginatedSharedLists, SharedList } from '@/types';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
-import SharedListCard from '@/components/cards/shared-list-card';
-import SuccessMsg from '@/components/messages/success-msg';
 import ErrorMsg from '@/components/messages/error-msg';
 import Pagination from '@/components/pagination';
-import type { PaginatedSharedLists, SharedList } from '@/types';
+import SharedListCard from '@/components/cards/shared-list-card';
+import SuccessMsg from '@/components/messages/success-msg';
 
 type PageProps = {
     lists: PaginatedSharedLists,
 }
 
-export default function Lists() {
+export default function SharedLists() {
     const { lists } = usePage<PageProps>().props;
 
     return (

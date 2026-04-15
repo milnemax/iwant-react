@@ -1,4 +1,5 @@
 import type { Contact } from '@/types';
+
 import { Trash2 } from 'lucide-react';
 
 interface ContactCardProps {

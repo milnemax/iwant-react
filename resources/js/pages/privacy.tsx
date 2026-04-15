@@ -1,5 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
+
 import { recipients, unsubscribe } from '@/routes';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
 import ContactForm from '@/components/forms/public/contact-form';

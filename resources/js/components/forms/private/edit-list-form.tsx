@@ -1,10 +1,14 @@
 import {Form, usePage} from '@inertiajs/react';
-import { listUpdate } from '@/routes';
-import type { ListType, List } from '@/types';
-import { SubmitBtn } from '@/components/forms/submit-btn';
 import { useState, useEffect } from 'react';
+
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+
+import { listUpdate } from '@/routes';
+
+import type { ListType, List } from '@/types';
+
+import { SubmitBtn } from '@/components/forms/submit-btn';
 
 interface EditListProps {
     list: List

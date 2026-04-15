@@ -1,8 +1,9 @@
 import { Head } from '@inertiajs/react';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
-import SuccessMsg from '@/components/messages/success-msg';
 import ErrorMsg from '@/components/messages/error-msg';
+import SuccessMsg from '@/components/messages/success-msg';
 import UnsubscribeForm from '@/components/forms/public/unsubscribe-form';
 
 export default function Unsubscribe() {

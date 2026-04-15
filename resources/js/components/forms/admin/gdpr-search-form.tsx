@@ -1,6 +1,8 @@
 import {Form, usePage} from '@inertiajs/react';
-import { SubmitBtn } from '../submit-btn';
+
 import { adminGdpr } from '@/routes';
+
+import { SubmitBtn } from '../submit-btn';
 
 export default function GdprSearchForm() {
     const { props } = usePage();

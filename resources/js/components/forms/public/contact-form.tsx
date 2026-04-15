@@ -1,5 +1,7 @@
 import { Form } from '@inertiajs/react';
+
 import { contactUsForm } from '@/routes';
+
 import { SubmitBtn } from '@/components/forms/submit-btn';
 
 export default function ContactForm() {

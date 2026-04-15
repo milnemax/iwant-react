@@ -1,4 +1,5 @@
 import type { ShoppingListItem } from '@/types';
+
 import { CirclePoundSterling } from 'lucide-react';
 
 interface ShoppingListItemCardProps {

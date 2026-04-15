@@ -1,7 +1,11 @@
 import {Link, usePage} from '@inertiajs/react';
+
 import { sharedList } from '@/routes';
+
 import type { SharedList, SharedData } from '@/types';
+
 import { Pointer } from 'lucide-react';
+
 import { formatDate } from '@/lib/utils';
 
 interface SharedListCardProps {

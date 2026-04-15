@@ -1,8 +1,12 @@
 import {Form, usePage} from '@inertiajs/react';
+
 import { detailsUpdate } from '@/routes';
+
 import type { SharedData } from '@/types';
-import { SubmitBtn } from '@/components/forms/submit-btn';
+
 import {mapMonth} from "@/lib/utils";
+
+import { SubmitBtn } from '@/components/forms/submit-btn';
 
 export default function PersonalDetailsForm() {
     const { auth } = usePage<SharedData>().props;

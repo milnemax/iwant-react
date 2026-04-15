@@ -1,7 +1,11 @@
 import { Link } from '@inertiajs/react';
+
 import { listShow } from '@/routes';
+
 import type { List } from '@/types';
+
 import { Pointer, Trash2 } from 'lucide-react';
+
 import { formatDate } from '@/lib/utils';
 
 interface ListCardProps {

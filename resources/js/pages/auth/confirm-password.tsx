@@ -1,50 +1,25 @@
-import { Form, Head } from '@inertiajs/react';
-import InputError from '@/components/input-error';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Spinner } from '@/components/ui/spinner';
-import AuthLayout from '@/layouts/auth-layout';
-import { store } from '@/routes/password/confirm';
+import { Head } from '@inertiajs/react';
+
+import AppHeader from '@/components/app-header';
+import AppFooter from '@/components/app-footer';
+import ConfirmPasswordForm from '@/components/forms/auth/confirm-password-form';
 
 export default function ConfirmPassword() {
     return (
-        <AuthLayout
-            title="Confirm your password"
-            description="This is a secure area of the application. Please confirm your password before continuing."
-        >
-            <Head title="Confirm password" />
+        <>
+            <Head title="Confirm your password">
+                <meta name="description" content="iWantiWant allows you to create and share wish lists with your friends and family" />
+            </Head>
 
-            <Form {...store.form()} resetOnSuccess={['password']}>
-                {({ processing, errors }) => (
-                    <div className="space-y-6">
-                        <div className="grid gap-2">
-                            <Label htmlFor="password">Password</Label>
-                            <Input
-                                id="password"
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                autoComplete="current-password"
-                                autoFocus
-                            />
+            <div className="flex min-h-screen flex-col items-center pb-6 pt:16 bg-gray-100 text-gray-700 lg:justify-center">
+                <AppHeader />
 
-                            <InputError message={errors.password} />
-                        </div>
+                <main className="flex flex-col w-full items-center justify-center opacity-100 transition-opacity duration-750 lg:grow starting:opacity-0 my-[8rem]">
+                    <ConfirmPasswordForm />
+                </main>
 
-                        <div className="flex items-center">
-                            <Button
-                                className="w-full"
-                                disabled={processing}
-                                data-test="confirm-password-button"
-                            >
-                                {processing && <Spinner />}
-                                Confirm password
-                            </Button>
-                        </div>
-                    </div>
-                )}
-            </Form>
-        </AuthLayout>
+                <AppFooter />
+            </div>
+        </>
     );
 }

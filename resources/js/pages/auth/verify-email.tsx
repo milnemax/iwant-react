@@ -1,11 +1,9 @@
-
 import { Head } from '@inertiajs/react';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
-import SuccessMsg from '@/components/messages/success-msg';
 import ResendVerifyEmailForm from '@/components/forms/auth/resend-verify-email-form';
-import { logout } from '@/routes';
-import { send } from '@/routes/verification';
+import SuccessMsg from '@/components/messages/success-msg';
 
 export default function VerifyEmail({ status }: { status?: string }) {
     return (

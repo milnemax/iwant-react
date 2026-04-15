@@ -1,12 +1,15 @@
 import {Head, usePage} from '@inertiajs/react';
+import {useState} from "react";
+
+import type { SharedListItem, SharedList, Contact } from '@/types';
+
+import { formatDate } from '@/lib/utils';
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
-import SuccessMsg from '@/components/messages/success-msg';
 import ErrorMsg from '@/components/messages/error-msg';
 import SharedListItemCard from '@/components/cards/shared-list-item-card';
-import { formatDate } from '@/lib/utils';
-import {useState} from "react";
-import type { SharedListItem, SharedList, Contact } from '@/types';
+import SuccessMsg from '@/components/messages/success-msg';
 import SubmitOfferForm from "@/components/forms/public/submit-offer-form";
 
 type PageProps = {

@@ -1,6 +1,7 @@
 import {Form, usePage} from '@inertiajs/react';
+
 import { permissionsUpdate } from '@/routes';
-import type { SharedData } from '@/types';
+
 import { SubmitBtn } from '@/components/forms/submit-btn';
 
 interface PermissionFormProps {
@@ -9,7 +10,6 @@ interface PermissionFormProps {
 }
 
 export default function PermissionsForm() {
-    const { auth } = usePage<SharedData>().props;
     const page = usePage<PermissionFormProps>();
     const { notifications, offerNotifications } = page.props;
 

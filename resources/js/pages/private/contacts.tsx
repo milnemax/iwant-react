@@ -1,17 +1,19 @@
-import {Head, usePage} from '@inertiajs/react';
-import { router } from "@inertiajs/react"
+import {Head, router, usePage} from '@inertiajs/react';
 import {useState} from "react";
+
+import type { PaginatedContacts, Contact } from '@/types';
+
+import AddContactForm from '@/components/forms/private/add-contact-form';
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
 import ContactCard from '@/components/cards/contact-card';
-import Model from '@/components/model';
-import SuccessMsg from '@/components/messages/success-msg';
 import ErrorMsg from '@/components/messages/error-msg';
+import Model from '@/components/model';
 import Pagination from '@/components/pagination';
-import AddContactForm from '@/components/forms/private/add-contact-form';
+import SuccessMsg from '@/components/messages/success-msg';
+
 import {CancelBtn} from '@/components/forms/cancel-btn';
 import {PrimaryBtn} from '@/components/forms/primary-btn';
-import type { PaginatedContacts, Contact } from '@/types';
 
 type PageProps = {
     contacts: PaginatedContacts

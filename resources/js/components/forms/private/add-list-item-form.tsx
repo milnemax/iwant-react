@@ -1,8 +1,11 @@
 import {Form, usePage} from '@inertiajs/react';
+
 import { listItemsStore } from '@/routes';
+
 import type { List } from '@/types';
-import { SubmitBtn } from '@/components/forms/submit-btn';
+
 import { LookUpField } from "@/components/forms/lookup-field";
+import { SubmitBtn } from '@/components/forms/submit-btn';
 
 interface AddListItemProps {
     list: List,

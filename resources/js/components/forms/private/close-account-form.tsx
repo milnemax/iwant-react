@@ -1,11 +1,15 @@
 import { Form } from '@inertiajs/react';
+import {useState} from "react";
+
 import { closeAccount } from '@/routes';
+
+import {Trash} from "lucide-react";
+
+import Model from '@/components/model';
+
 import { CancelBtn } from '@/components/forms/cancel-btn';
 import { PrimaryBtn } from '@/components/forms/primary-btn';
 import { SubmitBtn } from '@/components/forms/submit-btn';
-import Model from '@/components/model';
-import {Trash} from "lucide-react";
-import {useState} from "react";
 
 export default function CloseAccountForm() {
     const [showModal, setShowModal] = useState<boolean>(false);

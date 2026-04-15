@@ -1,11 +1,14 @@
 import {Head, usePage} from '@inertiajs/react';
+
+import type { PaginatedGdprRecords } from '@/types';
+
 import AdminNav from '@/components/admin-nav';
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
 import GdprSearchForm from '@/components/forms/admin/gdpr-search-form';
 import Pagination from '@/components/pagination';
+
 import { formatDate } from '@/lib/utils';
-import type { PaginatedGdprRecords } from '@/types';
 
 type PageProps = {
     results: PaginatedGdprRecords,

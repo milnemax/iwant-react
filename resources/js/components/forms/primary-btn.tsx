@@ -1,4 +1,5 @@
 import { Loader2Icon } from "lucide-react"
+
 import type { LucideIcon } from "lucide-react";
 
 type PrimaryBtnProps = React.ComponentProps<"button"> & {

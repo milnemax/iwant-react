@@ -1,16 +1,20 @@
 import {Head, usePage, Link} from '@inertiajs/react';
+
 import { closeAccount } from '@/routes';
+
+import type { SharedData } from '@/types';
+
+import {formatDate} from "@/lib/utils";
+
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
-import SuccessMsg from '@/components/messages/success-msg';
-import ErrorMsg from '@/components/messages/error-msg';
 import ChangePasswordForm from '@/components/forms/auth/change-password-form';
 import CloseAccountForm from '@/components/forms/private/close-account-form';
+import ErrorMsg from '@/components/messages/error-msg';
 import ExportDetailsForm from '@/components/forms/private/export-details-form';
-import PersonalDetailsForm from '@/components/forms/private/personal-details-form';
 import PermissionForm from '@/components/forms/private/permissions-form';
-import type { SharedData } from '@/types';
-import {formatDate} from "@/lib/utils";
+import PersonalDetailsForm from '@/components/forms/private/personal-details-form';
+import SuccessMsg from '@/components/messages/success-msg';
 
 export default function Details() {
     const { auth } = usePage<SharedData>().props;

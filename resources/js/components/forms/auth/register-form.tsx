@@ -1,8 +1,10 @@
 import { Form, Link } from '@inertiajs/react';
-import { privacy } from '../../../routes/index';
+
+import { privacy } from '@/routes';
 import { store } from '@/routes/register';
+
+import { PasswordField } from "@/components/forms/password-field";
 import { SubmitBtn } from '../submit-btn';
-import {PasswordField} from "@/components/forms/password-field";
 
 export default function RegisterForm() {
     return (

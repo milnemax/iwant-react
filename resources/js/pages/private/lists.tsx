@@ -1,17 +1,19 @@
-import {Head, usePage} from '@inertiajs/react';
-import { router } from "@inertiajs/react"
+import {Head, router, usePage} from '@inertiajs/react';
 import {useState} from "react";
+
+import type { PaginatedLists, List } from '@/types';
+
+import AddListForm from '@/components/forms/private/add-list-form';
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
+import ErrorMsg from '@/components/messages/error-msg';
 import ListCard from '@/components/cards/list-card';
 import Model from '@/components/model';
-import SuccessMsg from '@/components/messages/success-msg';
-import ErrorMsg from '@/components/messages/error-msg';
 import Pagination from '@/components/pagination';
-import AddListForm from '@/components/forms/private/add-list-form';
+import SuccessMsg from '@/components/messages/success-msg';
+
 import {CancelBtn} from '@/components/forms/cancel-btn';
 import {PrimaryBtn} from '@/components/forms/primary-btn';
-import type { PaginatedLists, List } from '@/types';
 
 type PageProps = {
     lists: PaginatedLists,

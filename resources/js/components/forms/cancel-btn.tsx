@@ -1,4 +1,3 @@
-
 type CancelBtnProps = React.ComponentProps<"button"> & {
     buttonClick: () => void,
 };

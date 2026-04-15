@@ -1,4 +1,5 @@
 import {Head, usePage} from '@inertiajs/react';
+
 import AdminNav from '@/components/admin-nav';
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';

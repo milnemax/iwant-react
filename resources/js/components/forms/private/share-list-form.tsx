@@ -1,6 +1,9 @@
 import {Form, usePage} from '@inertiajs/react';
+
 import { listShare } from '@/routes';
+
 import type { PaginatedListItems, ListItem, ListContact, List } from '@/types';
+
 import { SubmitBtn } from '@/components/forms/submit-btn';
 
 interface ShareListProps {

@@ -1,9 +1,11 @@
 import { Form, Link } from '@inertiajs/react';
-import { privacy } from '../../../routes/index';
-import { store } from '../../../routes/login/index';
-import { request } from '../../../routes/password/index';
+
+import { privacy } from '@/routes';
+import { store } from '@/routes/login';
+import { request } from '@/routes/password';
+
+import { PasswordField } from "@/components/forms/password-field";
 import { SubmitBtn } from '../submit-btn';
-import {PasswordField} from "@/components/forms/password-field";
 
 export default function LoginForm() {
     return (

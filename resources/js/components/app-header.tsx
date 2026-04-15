@@ -1,8 +1,11 @@
 import { Link, usePage } from '@inertiajs/react';
-import { admin, contacts, dashboard, details, home, lists, login, logout, register, privacy } from '@/routes';
-import type { NavItem, SharedData } from '@/types';
-
 import {useState} from "react";
+
+import { admin, contacts, dashboard, details, home, lists, login, logout, register, privacy } from '@/routes';
+
+import { Menu } from 'lucide-react'
+
+import type { NavItem, SharedData } from '@/types';
 
 const guestNavItems: NavItem[] = [
     {
@@ -113,12 +116,7 @@ export default function AppHeader() {
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label="Toggle menu"
                 >
-                    <svg className="h-8 w-8 fill-white hover:fill-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path className="hidden" fillRule="evenodd" clipRule="evenodd"
-                              d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"></path>
-                        <path fillRule="evenodd"
-                              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
-                    </svg>
+                    <Menu className="mx-auto h-8 w-8 text-white hover:text-gray-300" />
                 </button>
             </nav>
             {menuOpen && (

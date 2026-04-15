@@ -1,6 +1,9 @@
 import { Link } from '@inertiajs/react';
+
 import { listItemEdit } from '@/routes';
+
 import type { ListItem } from '@/types';
+
 import { Pointer, Trash2 } from 'lucide-react';
 
 interface ListItemCardProps {

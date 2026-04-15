@@ -1,9 +1,12 @@
 import {Form, usePage, router} from '@inertiajs/react';
+
 import { listItemUpdate, listShow } from '@/routes';
+
 import type { ListItem, List } from '@/types';
-import { SubmitBtn } from '@/components/forms/submit-btn';
+
 import { CancelBtn } from '@/components/forms/cancel-btn';
 import { LookUpField } from "@/components/forms/lookup-field";
+import { SubmitBtn } from '@/components/forms/submit-btn';
 
 interface EditListItemProps {
     listItem: ListItem,

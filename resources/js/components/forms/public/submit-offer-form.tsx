@@ -1,9 +1,13 @@
 import { Form } from '@inertiajs/react';
+
 import { sharedListOffer } from '@/routes';
-import {CancelBtn} from "@/components/forms/cancel-btn";
-import { SubmitBtn } from '@/components/forms/submit-btn';
+
+import { SharedListItem } from "@/types/lists";
+
 import Model from '@/components/model';
-import {SharedListItem} from "@/types/lists";
+
+import { CancelBtn } from "@/components/forms/cancel-btn";
+import { SubmitBtn } from '@/components/forms/submit-btn';
 
 interface SubmitOfferFormProps {
     sharedListItem: SharedListItem,
